@@ -2902,9 +2902,9 @@
 														"$ref": "AAAAAAF9/PHWE5DLVWs="
 													},
 													"font": "Arial;13;0",
-													"left": 129,
+													"left": 89,
 													"top": 104,
-													"width": 214.626953125,
+													"width": 295.5595703125,
 													"height": 13,
 													"alpha": 1.5707963267948966,
 													"distance": 10,
@@ -2912,7 +2912,7 @@
 														"$ref": "AAAAAAF9/PHWE5DMLFM="
 													},
 													"edgePosition": 1,
-													"text": "1 : requestPrenotazione(num, idVolo)"
+													"text": "1 : requestPrenotazione(numPosti,numBag, idVolo)"
 												},
 												{
 													"_type": "EdgeLabelView",
@@ -3284,9 +3284,9 @@
 																	"font": "Arial;13;0",
 																	"left": 100,
 																	"top": 262,
-																	"width": 101.16259765625,
+																	"width": 130.0634765625,
 																	"height": 13,
-																	"text": "[postiDisp>=num]"
+																	"text": "[postiDisp>=numPosti]"
 																}
 															],
 															"font": "Arial;13;0",
@@ -3499,9 +3499,9 @@
 																	"font": "Arial;13;0",
 																	"left": 116,
 																	"top": 326,
-																	"width": 80.22802734375,
+																	"width": 121.41796875,
 																	"height": 13,
-																	"text": "[postiBag>=n]"
+																	"text": "[postiBag>=numBag]"
 																}
 															],
 															"font": "Arial;13;0",
@@ -3794,6 +3794,18 @@
 												"$ref": "AAAAAAF9/P+y1ZG6ABc="
 											},
 											"showProperty": false
+										},
+										{
+											"_type": "RectangleView",
+											"_id": "AAAAAAF+JyjwcxHJKtA=",
+											"_parent": {
+												"$ref": "AAAAAAF9/OmUn5A68jY="
+											},
+											"font": "Arial;13;0",
+											"left": 424,
+											"top": 336,
+											"width": 50,
+											"height": 50
 										}
 									]
 								}
@@ -3812,7 +3824,7 @@
 									"target": {
 										"$ref": "AAAAAAF9/O882pBrW+k="
 									},
-									"arguments": "num, idVolo"
+									"arguments": "numPosti,numBag, idVolo"
 								},
 								{
 									"_type": "UMLMessage",
@@ -3949,7 +3961,7 @@
 												"$ref": "AAAAAAF9/PnbDZEZKFM="
 											},
 											"name": "Operand1",
-											"guard": "postiDisp>=num"
+											"guard": "postiDisp>=numPosti"
 										}
 									]
 								},
@@ -3968,7 +3980,7 @@
 												"$ref": "AAAAAAF9/P0ZQJFTFSc="
 											},
 											"name": "InteractionOperand1",
-											"guard": "postiBag>=n"
+											"guard": "postiBag>=numBag"
 										},
 										{
 											"_type": "UMLInteractionOperand",
@@ -3991,7 +4003,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9/OmUn5A4sDA="
 							},
-							"name": "Role1"
+							"name": "Role1",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3999,7 +4012,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9/OmUn5A4sDA="
 							},
-							"name": "Role2"
+							"name": "Role2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4007,7 +4021,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9/OmUn5A4sDA="
 							},
-							"name": "Role3"
+							"name": "Role3",
+							"type": ""
 						}
 					]
 				}
