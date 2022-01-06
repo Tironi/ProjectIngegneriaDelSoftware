@@ -60,7 +60,7 @@
 											"font": "Arial;13;1",
 											"left": 237,
 											"top": 631,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "Cliente"
 										},
@@ -95,7 +95,7 @@
 									"font": "Arial;13;0",
 									"left": 232,
 									"top": 624,
-									"width": 710.3369140625,
+									"width": 749.36865234375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF9/LfaytsTRig="
@@ -132,7 +132,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 654,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "-nome: String",
 											"horizontalAlignment": 0
@@ -149,7 +149,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 669,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "-cognome: String",
 											"horizontalAlignment": 0
@@ -166,7 +166,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 684,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "+codiceFiscale: String",
 											"horizontalAlignment": 0
@@ -175,7 +175,7 @@
 									"font": "Arial;13;0",
 									"left": 232,
 									"top": 649,
-									"width": 710.3369140625,
+									"width": 749.36865234375,
 									"height": 53
 								},
 								{
@@ -200,9 +200,9 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 707,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
-											"text": "+effettuaPrenotazione(numPersone: int, numBagagliCabina: int, listaAmici: List<Cliente>, codiceVolo: String)",
+											"text": "+effettuaPrenotazione(numPersone: int, numBagagliCabina: int, listaAmici: List<Cliente>, codiceVolo: String, numTotBagagli: int)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -217,7 +217,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 722,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "+controlloStorico(codiceFiscale: String)",
 											"horizontalAlignment": 0
@@ -226,7 +226,7 @@
 									"font": "Arial;13;0",
 									"left": 232,
 									"top": 702,
-									"width": 710.3369140625,
+									"width": 749.36865234375,
 									"height": 38
 								},
 								{
@@ -266,7 +266,7 @@
 							"containerChangeable": true,
 							"left": 232,
 							"top": 624,
-							"width": 710.3369140625,
+							"width": 749.36865234375,
 							"height": 131,
 							"showProperty": false,
 							"nameCompartment": {
@@ -3281,6 +3281,15 @@
 									},
 									"name": "codiceVolo",
 									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+MTkNMBJAzpM=",
+									"_parent": {
+										"$ref": "AAAAAAF+Jwi3WymCLkI="
+									},
+									"name": "numTotBagagli",
+									"type": "int"
 								}
 							]
 						},

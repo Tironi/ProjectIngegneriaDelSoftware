@@ -85,12 +85,13 @@ public class Cliente {
     * @param numPersone 
     * @param numBagagliCabina 
     * @param listaAmici 
-    * @param codiceVolo
+    * @param codiceVolo 
+    * @param numTotBagagli
     */
 
     // ----------- << method.annotations@AAAAAAF+Jwi3WymCLkI= >>
     // ----------- >>
-    public void effettuaPrenotazione(int numPersone, int numBagagliCabina, List<Cliente> listaAmici, String codiceVolo) {
+    public void effettuaPrenotazione(int numPersone, int numBagagliCabina, List<Cliente> listaAmici, String codiceVolo, int numTotBagagli) {
     // ----------- << method.body@AAAAAAF+Jwi3WymCLkI= >>
     // ----------- >>
     }
