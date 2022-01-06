@@ -22,7 +22,7 @@ public class Aereo {
 
     // ----------- << attribute.annotations@AAAAAAF+Jxcq5G3ROy0= >>
     // ----------- >>
-    private int numBagCabina;
+    private int numBagagliCabina;
 
     // ----------- << attribute.annotations@AAAAAAF9/MsGmdyDE2k= >>
     // ----------- >>
@@ -36,8 +36,8 @@ public class Aereo {
         return codice;
     }
 
-    private int getNumBagCabina() {
-        return numBagCabina;
+    private int getNumBagagliCabina() {
+        return numBagagliCabina;
     }
 
     public Set<Volo> getAppartieneAvolo() {
@@ -52,8 +52,8 @@ public class Aereo {
         this.codice = codice;
     }
 
-    private void setNumBagCabina(int numBagCabina) {
-        this.numBagCabina = numBagCabina;
+    private void setNumBagagliCabina(int numBagagliCabina) {
+        this.numBagagliCabina = numBagagliCabina;
     }
 
     public void linkAppartieneAvolo(Volo _appartieneAvolo) {
