@@ -5,6 +5,7 @@
 */
 package com.example.demo.models;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Operatore {
@@ -48,14 +49,14 @@ public class Operatore {
     }
 
     /**
-     * L'operatore nel momento in cui decide di inserire un nuovo volo
+     * L'operatore nel momento in cui decide di inserire un nuovo volo deve specificare i seguenti attributi
     * @param codiceAereo 
     * @param aeroporto 
     * @param orario 
-    * @param prezzo
+    * @param prezzo : il prezzo unitario di un biglietto (escluso i bagagli)
     */
 
-    public void inserisciVolo(String codiceAereo, String aeroporto, LocalDateTime orario, double prezzo) {
+    public void inserisciVolo(String codiceAereo, String aeroportoPartenza, LocalDateTime orario, double prezzo, String aeroportoArrivo) {
     
     }
 }
