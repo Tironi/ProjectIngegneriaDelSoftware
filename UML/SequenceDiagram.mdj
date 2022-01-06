@@ -4978,17 +4978,17 @@
 														"$ref": "AAAAAAF+KzQ9A5WhRx8="
 													},
 													"font": "Arial;13;0",
-													"left": 63,
+													"left": 31,
 													"top": 272,
-													"width": 320.8232421875,
+													"width": 466.06396484375,
 													"height": 13,
-													"alpha": 1.5707963267948966,
-													"distance": 10,
+													"alpha": 0.23923154381544215,
+													"distance": 42.20189569201838,
 													"hostEdge": {
 														"$ref": "AAAAAAF+KzQ9BJWiIGM="
 													},
 													"edgePosition": 1,
-													"text": "4 : inserisciVolo(codiceAereo, aeroporto, orario, prezzo)"
+													"text": "4 : inserisciVolo(codiceAereo, aeroportoPartenza, orario, prezzo,aeroportoArrivo)"
 												},
 												{
 													"_type": "EdgeLabelView",
@@ -5948,7 +5948,7 @@
 									"target": {
 										"$ref": "AAAAAAF+KzN9dpVbhR8="
 									},
-									"arguments": "codiceAereo, aeroporto, orario, prezzo"
+									"arguments": "codiceAereo, aeroportoPartenza, orario, prezzo,aeroportoArrivo"
 								},
 								{
 									"_type": "UMLMessage",
@@ -6132,7 +6132,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF+KzLSLpUavVQ="
 							},
-							"name": "Role1"
+							"name": "Role1",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6140,7 +6141,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF+KzLSLpUavVQ="
 							},
-							"name": "Role2"
+							"name": "Role2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -6148,7 +6150,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF+KzLSLpUavVQ="
 							},
-							"name": "Role3"
+							"name": "Role3",
+							"type": ""
 						}
 					]
 				},
@@ -7431,7 +7434,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF+KzMJRpUqm1s="
 							},
-							"name": "Role1"
+							"name": "Role1",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7439,7 +7443,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF+KzMJRpUqm1s="
 							},
-							"name": "Role2"
+							"name": "Role2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -7447,7 +7452,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF+KzMJRpUqm1s="
 							},
-							"name": "Role3"
+							"name": "Role3",
+							"type": ""
 						}
 					]
 				}
