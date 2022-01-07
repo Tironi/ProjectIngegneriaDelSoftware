@@ -1,44 +1,56 @@
 package com.pack.aeroporto.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Operatore {
 
     private String nome;
     private String cognome;
-    private String email;
+    private @Id String email;
     private String PSW;
     
     public Operatore() {
-		super();
+        super();
 	}
-
+    
 	public Operatore(String nome, String cognome, String email, String PSW) {
-    	this.nome = nome;
+        this.nome = nome;
     	this.cognome = cognome;
     	this.email = email;
     	this.PSW = PSW;
 	}
     
-    private String getNome() {
+    public String getPSW() {
+        return PSW;
+    }
+
+    public void setPSW(String pSW) {
+        PSW = pSW;
+    }
+
+    public String getNome() {
         return nome;
     }
 
-    private String getCognome() {
+    public String getCognome() {
         return cognome;
     }
 
-    private String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    private void setCognome(String cognome) {
+    public void setCognome(String cognome) {
         this.cognome = cognome;
     }
 
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 }

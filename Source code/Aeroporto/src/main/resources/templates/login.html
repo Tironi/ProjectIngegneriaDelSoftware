@@ -4,13 +4,18 @@
 <title>Login</title>
 </head>
 <body>
-<form action="#" th:action="@{/login}" th:object="${op1}" method="post">
-  <label for="fname">First name:</label><br>
-  <input type="text" th:field="*{email}" id="email" name="email"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" th:field="*{PSW}" id="psw" name="psw"><br><br>
-  <input type="submit" value="Submit">
-</form>
+
+  <form th:action="@{/login}" th:object="${op1}" method="post">
+    
+    <label for="fname">First name:</label><br>
+    <input type="text" th:field="*{email}" id="email" name="email"><br>
+    
+    <label for="lname">Last name:</label><br>
+    <input type="text" th:field="*{PSW}" id="PSW" name="PSW"><br><br>
+    
+    <input type="submit" value="Submit">
+    
+  </form>
 
 </body>
 </html>
