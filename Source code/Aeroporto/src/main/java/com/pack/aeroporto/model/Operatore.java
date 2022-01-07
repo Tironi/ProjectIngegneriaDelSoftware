@@ -5,16 +5,19 @@ public class Operatore {
     private String nome;
     private String cognome;
     private String email;
-    private String password;
+    private String PSW;
     
-    public String getPassword() {
-        return password;
-    }
+    public Operatore() {
+		super();
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
+	public Operatore(String nome, String cognome, String email, String PSW) {
+    	this.nome = nome;
+    	this.cognome = cognome;
+    	this.email = email;
+    	this.PSW = PSW;
+	}
+    
     private String getNome() {
         return nome;
     }
