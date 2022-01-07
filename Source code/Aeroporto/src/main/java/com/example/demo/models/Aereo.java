@@ -35,6 +35,4 @@ public class Aereo {
     public String toString() {
     	return "Codice Aereo: " + codice + " - Num Bagagli in Cabina : " + numBagagliCabina;
     }
-   
-
 }

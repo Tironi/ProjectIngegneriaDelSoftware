@@ -60,7 +60,7 @@
 											"font": "Arial;13;1",
 											"left": 237,
 											"top": 631,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "Cliente"
 										},
@@ -95,7 +95,7 @@
 									"font": "Arial;13;0",
 									"left": 232,
 									"top": 624,
-									"width": 710.3369140625,
+									"width": 749.36865234375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF9/LfaytsTRig="
@@ -132,7 +132,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 654,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "-nome: String",
 											"horizontalAlignment": 0
@@ -149,7 +149,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 669,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "-cognome: String",
 											"horizontalAlignment": 0
@@ -166,7 +166,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 684,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "+codiceFiscale: String",
 											"horizontalAlignment": 0
@@ -175,7 +175,7 @@
 									"font": "Arial;13;0",
 									"left": 232,
 									"top": 649,
-									"width": 710.3369140625,
+									"width": 749.36865234375,
 									"height": 53
 								},
 								{
@@ -200,9 +200,9 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 707,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
-											"text": "+effettuaPrenotazione(numPersone: int, numBagagliCabina: int, listaAmici: List<Cliente>, codiceVolo: String)",
+											"text": "+effettuaPrenotazione(numPersone: int, numBagagliCabina: int, listaAmici: List<Cliente>, codiceVolo: String, numTotBagagli: int)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -217,7 +217,7 @@
 											"font": "Arial;13;0",
 											"left": 237,
 											"top": 722,
-											"width": 700.3369140625,
+											"width": 739.36865234375,
 											"height": 13,
 											"text": "+controlloStorico(codiceFiscale: String)",
 											"horizontalAlignment": 0
@@ -226,7 +226,7 @@
 									"font": "Arial;13;0",
 									"left": 232,
 									"top": 702,
-									"width": 710.3369140625,
+									"width": 749.36865234375,
 									"height": 38
 								},
 								{
@@ -266,7 +266,7 @@
 							"containerChangeable": true,
 							"left": 232,
 							"top": 624,
-							"width": 710.3369140625,
+							"width": 749.36865234375,
 							"height": 131,
 							"showProperty": false,
 							"nameCompartment": {
@@ -1349,7 +1349,7 @@
 											"font": "Arial;13;1",
 											"left": 213,
 											"top": 15,
-											"width": 499.90966796875,
+											"width": 689.94580078125,
 											"height": 13,
 											"text": "Operatore"
 										},
@@ -1384,7 +1384,7 @@
 									"font": "Arial;13;0",
 									"left": 208,
 									"top": 8,
-									"width": 509.90966796875,
+									"width": 699.94580078125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF9/M0bF+Iff8Q="
@@ -1421,7 +1421,7 @@
 											"font": "Arial;13;0",
 											"left": 213,
 											"top": 38,
-											"width": 499.90966796875,
+											"width": 689.94580078125,
 											"height": 13,
 											"text": "-nome: String",
 											"horizontalAlignment": 0
@@ -1438,7 +1438,7 @@
 											"font": "Arial;13;0",
 											"left": 213,
 											"top": 53,
-											"width": 499.90966796875,
+											"width": 689.94580078125,
 											"height": 13,
 											"text": "-cognome: String",
 											"horizontalAlignment": 0
@@ -1455,7 +1455,7 @@
 											"font": "Arial;13;0",
 											"left": 213,
 											"top": 68,
-											"width": 499.90966796875,
+											"width": 689.94580078125,
 											"height": 13,
 											"text": "-email: String",
 											"horizontalAlignment": 0
@@ -1472,7 +1472,7 @@
 											"font": "Arial;13;0",
 											"left": 213,
 											"top": 83,
-											"width": 499.90966796875,
+											"width": 689.94580078125,
 											"height": 13,
 											"text": "-PSW: String",
 											"horizontalAlignment": 0
@@ -1481,7 +1481,7 @@
 									"font": "Arial;13;0",
 									"left": 208,
 									"top": 33,
-									"width": 509.90966796875,
+									"width": 699.94580078125,
 									"height": 68
 								},
 								{
@@ -1506,16 +1506,16 @@
 											"font": "Arial;13;0",
 											"left": 213,
 											"top": 106,
-											"width": 499.90966796875,
+											"width": 689.94580078125,
 											"height": 13,
-											"text": "+inserisciVolo(codiceAereo: String, aeroporto: String, orario: dateTime, prezzo: double)",
+											"text": "+inserisciVolo(codiceAereo: String, aeroportoPartenza: String, orario: dateTime, prezzo: double, aeroportoArrivo: String)",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 208,
 									"top": 101,
-									"width": 509.90966796875,
+									"width": 699.94580078125,
 									"height": 23
 								},
 								{
@@ -1555,7 +1555,7 @@
 							"containerChangeable": true,
 							"left": 208,
 							"top": 8,
-							"width": 509.90966796875,
+							"width": 699.94580078125,
 							"height": 131,
 							"showProperty": false,
 							"nameCompartment": {
@@ -1595,8 +1595,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 719,
-									"top": 142,
+									"left": 748,
+									"top": 137,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1616,8 +1616,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 724,
-									"top": 128,
+									"left": 754,
+									"top": 123,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1637,8 +1637,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 710,
-									"top": 171,
+									"left": 735,
+									"top": 164,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1657,8 +1657,8 @@
 										"$ref": "AAAAAAF9/OCsePMG9sI="
 									},
 									"font": "Arial;13;0",
-									"left": 635,
-									"top": 127,
+									"left": 689,
+									"top": 130,
 									"width": 84.18896484375,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -1680,8 +1680,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 684,
-									"top": 115,
+									"left": 739,
+									"top": 119,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -1700,8 +1700,8 @@
 										"$ref": "AAAAAAF9/OCsePMG9sI="
 									},
 									"font": "Arial;13;0",
-									"left": 655,
-									"top": 152,
+									"left": 707,
+									"top": 153,
 									"width": 19.5126953125,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -1722,8 +1722,8 @@
 										"$ref": "AAAAAAF9/OCsePMHhkw="
 									},
 									"font": "Arial;13;0",
-									"left": 721,
-									"top": 158,
+									"left": 723,
+									"top": 145,
 									"width": 84.18896484375,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -1744,8 +1744,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 765,
-									"top": 144,
+									"left": 769,
+									"top": 132,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -1764,7 +1764,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 749,
-									"top": 185,
+									"top": 172,
 									"width": 19.5126953125,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -1815,7 +1815,7 @@
 								"$ref": "AAAAAAF9/M0bFuIdhTg="
 							},
 							"lineStyle": 1,
-							"points": "648:139;783:187",
+							"points": "702:139;783:176",
 							"showVisibility": true,
 							"showProperty": false,
 							"nameLabel": {
@@ -3281,6 +3281,15 @@
 									},
 									"name": "codiceVolo",
 									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+MTkNMBJAzpM=",
+									"_parent": {
+										"$ref": "AAAAAAF+Jwi3WymCLkI="
+									},
+									"name": "numTotBagagli",
+									"type": "int"
 								}
 							]
 						},
@@ -3653,7 +3662,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF+JwWtNiP8vMM="
 									},
-									"name": "aeroporto",
+									"name": "aeroportoPartenza",
 									"type": "String"
 								},
 								{
@@ -3673,6 +3682,15 @@
 									},
 									"name": "prezzo",
 									"type": "double"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+MUbyfBOuOgM=",
+									"_parent": {
+										"$ref": "AAAAAAF+JwWtNiP8vMM="
+									},
+									"name": "aeroportoArrivo",
+									"type": "String"
 								}
 							]
 						}

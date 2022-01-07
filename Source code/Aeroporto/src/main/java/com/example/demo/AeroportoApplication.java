@@ -13,15 +13,4 @@ public class AeroportoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AeroportoApplication.class, args);
 	}
-<<<<<<< Updated upstream
-
-=======
-	
-	@GetMapping
-	public String hello() {
-		Aereo aereo = new Aereo(01, 2);
-		return aereo.toString();
-	}
-	
->>>>>>> Stashed changes
 }
