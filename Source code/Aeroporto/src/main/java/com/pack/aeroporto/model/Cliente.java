@@ -1,14 +1,12 @@
 package com.pack.aeroporto.model;
 
 import java.util.*;
-import java.time.*;
 
 public class Cliente {
 	
     private String nome;
     private String cognome;
     private String codiceFiscale;
-
   
     private String getNome() {
         return nome;

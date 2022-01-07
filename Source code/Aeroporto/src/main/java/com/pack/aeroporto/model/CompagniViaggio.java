@@ -1,14 +1,12 @@
 package com.pack.aeroporto.model;
 
-import java.util.*;
-import java.time.*;
-
 public class CompagniViaggio {
    
     private String codiceFiscaleCliente;
     private String codiceFiscaleAmico;
     private String codiceVolo;
-
+    
+    public CompagniViaggio() {}
     
     private String getCodiceFiscaleCliente() {
         return codiceFiscaleCliente;

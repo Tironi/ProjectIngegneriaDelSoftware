@@ -1,9 +1,5 @@
 package com.pack.aeroporto.model;
 
-import java.util.*;
-import java.time.*;
-
-
 public class Aereo {
     
     private int codice;

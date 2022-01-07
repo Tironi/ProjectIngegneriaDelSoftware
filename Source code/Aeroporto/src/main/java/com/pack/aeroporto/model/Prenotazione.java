@@ -1,15 +1,10 @@
 package com.pack.aeroporto.model;
 
-import java.util.*;
-import java.time.*;
-
-
 public class Prenotazione {
 	
     private String codiceFiscale;
     private Posto posto;
     private String codiceVolo;
-
     
     private String getCodiceFiscale() {
         return codiceFiscale;

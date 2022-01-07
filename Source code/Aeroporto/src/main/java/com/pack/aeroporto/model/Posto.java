@@ -1,8 +1,5 @@
 package com.pack.aeroporto.model;
 
-import java.util.*;
-import java.time.*;
-
 public class Posto {
 	
     private int numero;
