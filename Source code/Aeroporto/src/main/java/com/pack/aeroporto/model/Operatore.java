@@ -16,6 +16,19 @@ public class Operatore {
     private String PSW;
 
     
+    
+    
+    public Operatore() {
+		super();
+	}
+
+	public Operatore(String nome, String cognome, String email, String PSW) {
+    	this.nome = nome;
+    	this.cognome = cognome;
+    	this.email = email;
+    	this.PSW = PSW;
+	}
+    
     private String getNome() {
         return nome;
     }
