@@ -3,6 +3,7 @@ package com.pack.aeroporto.controller;
 import com.pack.aeroporto.model.*;
 import com.pack.aeroporto.repository.IAereoRepository;
 import com.pack.aeroporto.repository.IOperatoreRepository;
+import com.pack.aeroporto.repository.IVoloRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,12 @@ public class OperatoreController {
 
     private IOperatoreRepository operatoreRepo;
     private IAereoRepository aereoRepo;
+    private IVoloRepository voloRepo;
     
-    OperatoreController(IOperatoreRepository operatoreRepo, IAereoRepository aereoRepo){
+    OperatoreController(IOperatoreRepository operatoreRepo, IAereoRepository aereoRepo, IVoloRepository voloRepo){
     	this.operatoreRepo = operatoreRepo;
     	this.aereoRepo = aereoRepo;
+    	this.voloRepo = voloRepo;
     }
     
     @GetMapping("/operatore/login")   //nella pagina localhost:8080 verrà eseguito index()
@@ -51,13 +54,25 @@ public class OperatoreController {
     	return "/operatore/inserisciVolo";
     }
     
+    @GetMapping("/operatore/visualizzaVoli")
+    public String getVisualizzaVolo(Model model) {
+    	
+    	model.addAttribute("voli", voloRepo.findAll());
+    	
+    	return "/operatore/visualizzaVoli";
+    }
+    
     @PostMapping("/operatore/inserisciVolo")
     public String postInserisciVolo(@ModelAttribute Volo volo, Model model) {
 		
-    	//Controlla i dati in Volo
-    	//Inserire il volo nel database
-    	//Torna nel menu
+    	model.addAttribute("volo", volo);
+    	Volo result = voloRepo.save(volo);
     	
-    	return null;
+    	if(result != null) {
+            return "operatore/visualizzaVoli";
+    	}else {
+        	model.addAttribute("Errore", "Non è stato possibile inserire il volo");
+            return "error";
+    	}
     }
 }
