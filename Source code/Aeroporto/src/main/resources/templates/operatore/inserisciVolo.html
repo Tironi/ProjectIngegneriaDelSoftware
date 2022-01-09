@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Inserimento volo</title>
+	</head>
+<body>
+	<!-- TODO DA MODIFICARE CON GLI INPUT DEL VOLO -->
+   <table>
+	   <thead>
+	        <tr>
+	            <th> Title </th>
+	            <th> Numero bagagli </th>
+	        </tr>
+    	</thead>
+	    <tbody>
+	        <tr th:each="aereo : ${aerei}">
+	            <td><span th:text="${aereo.getCodice()}"> Title </span></td>
+	            <td><span th:text="${aereo.get_num_bagagli_cabina()}"> Title </span></td>
+	        </tr>
+	    </tbody>
+    </table>
+</body>
+</html>
