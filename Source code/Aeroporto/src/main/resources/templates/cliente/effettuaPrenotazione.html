@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Effettua prenotazione</title>
+</head>
+<body>
+	<h1>Effettua prenotazione</h1>
+	
+	<form th:action="@{/cliente/effettuaPrenotazione}" th:object="${prenotazioneDTO}" method="post">
+		<label for="fcodiceFiscale">Codice fiscale</label><br>
+	    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale"><br>
+		<label for="fcodiceFiscale">Nome</label><br>
+	    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale"><br>
+		<label for="fcodiceFiscale">Cognome</label><br>
+	    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale"><br>
+
+		<label for="fcodiceVolo">Codice volo</label><br>
+	    <input type="text" th:field="*{codiceVolo}" id="codiceVolo" name="codiceVolo"><br>
+    </form>
+</body>
+</html>
