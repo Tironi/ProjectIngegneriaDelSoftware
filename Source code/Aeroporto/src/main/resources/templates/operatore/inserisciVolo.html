@@ -6,20 +6,67 @@
 		<title>Inserimento volo</title>
 	</head>
 <body>
-	<!-- TODO DA MODIFICARE CON GLI INPUT DEL VOLO -->
-   <table>
+
+	<table>
 	   <thead>
 	        <tr>
-	            <th> Title </th>
-	            <th> Numero bagagli </th>
+	            <th> Codice </th>
+	            <th> Numero bagagli in cabina </th>
 	        </tr>
     	</thead>
 	    <tbody>
 	        <tr th:each="aereo : ${aerei}">
-	            <td><span th:text="${aereo.getCodice()}"> Title </span></td>
-	            <td><span th:text="${aereo.get_num_bagagli_cabina()}"> Title </span></td>
+	            <td><span th:text="${aereo.getCodice()}">  </span></td>
+	            <td><span th:text="${aereo.get_num_bagagli_cabina()}">  </span></td>
 	        </tr>
 	    </tbody>
     </table>
+    
+    <br>
+    
+    <form th:action="@{/operatore/inserisciVolo}" th:object="${volo}" method="post">
+  	
+	   <label for="codice">Codice:</label>
+	   <input type="Long" th:field="*{codice}" id="codice" name="codice"><br><br>
+	   
+	   <label for="codice_aereo">Codice aereo:</label>
+	   <input type="int" th:field="*{codiceAereo}" id="codice_aereo" name="codice_aereo"><br><br>
+	  
+	  
+	   <label for="orario">Orario:</label>
+	   <input type="LocalDateTime" th:field="*{orario}" id="orario" name="orario"><br><br>
+	   
+	   <label for="prezzo">Prezzo:</label>
+	   <input type="double" th:field="*{prezzo}" id="prezzo" name="prezzo"><br><br>
+	  
+	   <label for="aeroportA">Aeroporto di arrivo:</label>
+	   <input type="text" th:field="*{aeroportoArrivo}" id="aeroportA" name="aeroportA"><br><br>
+	   
+	   <label for="aeroportoP">Aeroporto di partenza:</label>
+	   <input type="text" th:field="*{aeroportoPartenza}" id="aeroportoP" name="aeroportoP"><br><br>
+	   
+	 
+	   <input type="submit" value="Submit">
+	   	   
+ 	</form>
+ 	
+ 	<br>
+ 	
+ 	<table>
+        <tr>
+            <td>
+				<form th:action="@{/operatore/menu}" method="post">
+				   <input type="submit" value="Menu">
+			 	</form>
+			</td>
+            
+			<td>
+				<form th:action="@{/operatore/visualizzaVoli}" method="post">
+				   <input type="submit" value="Visualizza voli">
+			 	</form>
+			</td>
+        </tr>
+    </table>
+ 	
 </body>
 </html>
