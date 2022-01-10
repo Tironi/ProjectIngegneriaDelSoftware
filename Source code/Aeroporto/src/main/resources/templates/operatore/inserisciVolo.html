@@ -25,25 +25,27 @@
     <br>
     
     <form th:action="@{/operatore/inserisciVolo}" th:object="${volo}" method="post">
-  	
-	   <label for="codice">Codice:</label>
-	   <input type="Long" th:field="*{codice}" id="codice" name="codice"><br><br>
-	   
-	   <label for="codice_aereo">Codice aereo:</label>
-	   <input type="int" th:field="*{codiceAereo}" id="codice_aereo" name="codice_aereo"><br><br>
+    
+	  <label for="codiceAereo">Codice aereo:</label>
+
+		<select th:field="*{codiceAereo}">
+		    <option th:each="aereo : ${aerei}" th:value="${aereo.getCodice()}" th:text="${aereo.getCodice()}"></option>
+		</select><br><br>
 	  
 	  
 	   <label for="orario">Orario:</label>
-	   <input type="LocalDateTime" th:field="*{orario}" id="orario" name="orario"><br><br>
-	   
+	   <input type="datetime-local" th:field="*{orario}" id="orario"
+		       name="orario" value="2018-06-12T19:30"
+      			 min="2022-01-30T00:00" max="2023-01-01T00:00" required="required"><br><br>
+			   
 	   <label for="prezzo">Prezzo:</label>
-	   <input type="double" th:field="*{prezzo}" id="prezzo" name="prezzo"><br><br>
+	   <input type="double" th:field="*{prezzo}" id="prezzo" name="prezzo" required="required"><br><br>
 	  
 	   <label for="aeroportA">Aeroporto di arrivo:</label>
-	   <input type="text" th:field="*{aeroportoArrivo}" id="aeroportA" name="aeroportA"><br><br>
+	   <input type="text" th:field="*{aeroportoArrivo}" id="aeroportA" name="aeroportA" required="required"><br><br>
 	   
 	   <label for="aeroportoP">Aeroporto di partenza:</label>
-	   <input type="text" th:field="*{aeroportoPartenza}" id="aeroportoP" name="aeroportoP"><br><br>
+	   <input type="text" th:field="*{aeroportoPartenza}" id="aeroportoP" name="aeroportoP" required="required"><br><br>
 	   
 	 
 	   <input type="submit" value="Submit">
@@ -55,13 +57,13 @@
  	<table>
         <tr>
             <td>
-				<form th:action="@{/operatore/menu}" method="post">
+				<form th:action="@{/operatore/menu}" >
 				   <input type="submit" value="Menu">
 			 	</form>
 			</td>
             
 			<td>
-				<form th:action="@{/operatore/visualizzaVoli}" method="post">
+				<form th:action="@{/operatore/visualizzaVoli}" >
 				   <input type="submit" value="Visualizza voli">
 			 	</form>
 			</td>
