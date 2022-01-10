@@ -1,5 +1,10 @@
 package com.pack.aeroporto.object;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.pack.aeroporto.entity.Volo;
+
 
 public class PrenotazioneDTO {
 
@@ -7,6 +12,8 @@ public class PrenotazioneDTO {
 	private String nome;
     private String cognome;
     private String codiceVolo;
+    private List voli;
+    private List compagniaAmici;
     
     public String getNome() {
         return nome;
@@ -32,11 +39,19 @@ public class PrenotazioneDTO {
         this.codiceFiscale = codiceFiscale;
     }
     
-    public String getCodiceVolo() {
-        return codiceVolo;
-    }
+	public String getCodiceVolo() {
+		return codiceVolo;
+	}
 
-    public void setCodiceVolo(String codiceVolo) {
-        this.codiceVolo = codiceVolo;
-    }
+	public void setCodiceVolo(String codiceVolo) {
+		this.codiceVolo = codiceVolo;
+	}
+
+	public List getVoli() {
+		return voli;
+	}
+
+	public void setVoli(List voli) {
+		this.voli = voli;
+	}
 }

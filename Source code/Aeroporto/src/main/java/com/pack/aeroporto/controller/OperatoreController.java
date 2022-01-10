@@ -1,6 +1,6 @@
 package com.pack.aeroporto.controller;
 
-import com.pack.aeroporto.model.*;
+import com.pack.aeroporto.entity.*;
 import com.pack.aeroporto.repository.IAereoRepository;
 import com.pack.aeroporto.repository.IOperatoreRepository;
 import com.pack.aeroporto.repository.IVoloRepository;

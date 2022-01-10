@@ -1,4 +1,4 @@
-package com.pack.aeroporto.model;
+package com.pack.aeroporto.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

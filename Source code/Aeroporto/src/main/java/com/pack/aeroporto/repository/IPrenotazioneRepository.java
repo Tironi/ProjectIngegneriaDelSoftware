@@ -3,7 +3,8 @@ package com.pack.aeroporto.repository;
 import org.springframework.data.repository.CrudRepository;
 
 import com.pack.aeroporto.entity.Aereo;
+import com.pack.aeroporto.entity.Prenotazione;
 
-public interface IAereoRepository extends CrudRepository<Aereo, Long>{
+public interface IPrenotazioneRepository extends CrudRepository<Prenotazione, String>{
 
 }

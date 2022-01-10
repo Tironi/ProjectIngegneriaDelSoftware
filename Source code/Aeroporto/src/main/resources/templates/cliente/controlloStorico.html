@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Controllo storico</title>
+</head>
+<body>
+	<form th:action="@{/cliente/controlloStorico}" th:object="${prenotazioneDTO}" method="post">
+		<div th:if="${prenotazioneDTO.codiceFiscale == null}">
+			<label for="fcodiceFiscale">Codice fiscale: </label>
+		    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
+		    <input type="submit" value="Cerca">
+		</div>
+		<div th:unless="${prenotazioneDTO.codiceFiscale != null}">
+			<label for="fcodiceFiscale">Ciao Mondo: </label>
+		    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
+		    <input type="submit" value="Cerca">
+		</div>
+	</form>
+</body>
+</html>
