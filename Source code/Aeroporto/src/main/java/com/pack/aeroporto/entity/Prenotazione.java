@@ -1,5 +1,7 @@
 package com.pack.aeroporto.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -25,4 +27,9 @@ public class Prenotazione {
     public void setCodiceVolo(String codiceVolo) {
         this.codiceVolo = codiceVolo;
     }
+
+	public Set<Prenotazione> getPrenotaPerAmici() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

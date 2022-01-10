@@ -54,6 +54,12 @@ public class OperatoreController {
     	return "/operatore/inserisciVolo";
     }
     
+    @GetMapping("/operatore/menu")
+    public String getVisualizzaMenu(Model model) {
+    	
+    	return "/operatore/menu";
+    }
+    
     @GetMapping("/operatore/visualizzaVoli")
     public String getVisualizzaVolo(Model model) {
     	
@@ -69,7 +75,7 @@ public class OperatoreController {
     	Volo result = voloRepo.save(volo);
     	
     	if(result != null) {
-            return "operatore/visualizzaVoli";
+            return "operatore/menu";
     	}else {
         	model.addAttribute("Errore", "Non è stato possibile inserire il volo");
             return "error";
