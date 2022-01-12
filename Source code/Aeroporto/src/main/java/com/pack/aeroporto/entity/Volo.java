@@ -24,10 +24,8 @@ public class Volo {
     private String aeroportoPartenza;
     private String aeroportoArrivo;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Basic(fetch = FetchType.EAGER)
-    @XmlElement
-    @DateTimeFormat(pattern = "dd-MM-yyyy'T'HH:mm")
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date orario;
     private long codiceAereo;
     private double prezzo;

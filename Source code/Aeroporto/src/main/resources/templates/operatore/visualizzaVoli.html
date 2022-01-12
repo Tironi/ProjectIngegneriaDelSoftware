@@ -23,8 +23,7 @@
 	            <td><span th:text="${volo.getCodice()}">  </span></td>
 	            <td><span th:text="${volo.getAeroportoPartenza()}">  </span></td>
 	            <td><span th:text="${volo.getAeroportoArrivo()}">  </span></td>
-	            <td><span th:text="${#temporals.format(volo.getOrario(), 'dd-MM-yyyy HH:mm')}" >  </span></td>
-	            <td><span th:text="${volo.getCodiceAereo()}">  </span></td>
+	            <td><span th:text="${volo.getOrario()}">  </span></td>
 	            <td><span th:text	="${volo.getPrezzo()}">  </span></td>
 	        </tr>
 	    </tbody>

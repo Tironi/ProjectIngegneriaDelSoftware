@@ -1,4 +1,4 @@
-package com.pack.aeroporto.model;
+package com.pack.aeroporto.entity;
 
 public class Posto {
 
