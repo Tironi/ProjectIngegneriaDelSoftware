@@ -38,7 +38,7 @@ public class ClienteController {
     	
     	return "/cliente/menu";
     }
-    /*
+    
     @GetMapping("effettuaPrenotazione")
     public String effettuaPrenotazione(Model model) {
     	
@@ -79,7 +79,7 @@ public class ClienteController {
     	model.addAttribute("esito", true);
     	return "/cliente/esitoPrenotazione";
     }
-    */
+    
     @GetMapping("/controlloStorico")
     public String controlloStorico(Model model) {
     	model.addAttribute(new Prenotazione());
