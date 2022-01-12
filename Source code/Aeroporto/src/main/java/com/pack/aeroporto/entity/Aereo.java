@@ -33,9 +33,4 @@ public class Aereo {
     public void set_num_bagagli_cabina(int num_bagagli_cabina) {
         this.num_bagagli_cabina = num_bagagli_cabina;
     }
-
-	public Object getParteDi() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
