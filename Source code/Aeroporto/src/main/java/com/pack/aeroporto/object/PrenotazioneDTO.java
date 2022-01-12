@@ -1,16 +1,15 @@
 package com.pack.aeroporto.object;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.pack.aeroporto.entity.Volo;
-
+import com.pack.aeroporto.entity.Prenotazione;
 
 public class PrenotazioneDTO {
 
 	private String codiceFiscale;
 	private String nome;
     private String cognome;
+    private Prenotazione prenotazione;
     private String codiceVolo;
     private List voli;
     private List compagniaAmici;
