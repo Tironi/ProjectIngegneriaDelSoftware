@@ -80,9 +80,13 @@ public class ClienteController {
     
     @GetMapping("controlloStorico")
     public String controlloStorico(Model model) {
-    	model.addAttribute(new PrenotazioneDTO());
-    	
-    	
+    	model.addAttribute(new Prenotazione());
+    	return "/cliente/controlloStorico";
+    }
+    
+    @PostMapping("controlloStorico")
+    public String mostraStorico(@ModelAttribute Prenotazione prenotazione, Model model) {
+    	model.addAttribute("prenotazione", prenotazione);
     	return "/cliente/controlloStorico";
     }
     
