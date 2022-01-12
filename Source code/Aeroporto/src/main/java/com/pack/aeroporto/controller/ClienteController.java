@@ -1,5 +1,7 @@
 package com.pack.aeroporto.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +38,7 @@ public class ClienteController {
     	
     	return "/cliente/menu";
     }
-    
+    /*
     @GetMapping("effettuaPrenotazione")
     public String effettuaPrenotazione(Model model) {
     	
@@ -74,17 +76,34 @@ public class ClienteController {
     	
     	return "/cliente";
     }
-    
-    @GetMapping("controlloStorico")
+    */
+    @GetMapping("/controlloStorico")
     public String controlloStorico(Model model) {
     	model.addAttribute(new Prenotazione());
+    	model.addAttribute("cerca", true);
     	return "/cliente/controlloStorico";
     }
     
-    @PostMapping("controlloStorico")
+    @PostMapping("/cliente/controlloStorico")
     public String mostraStorico(@ModelAttribute Prenotazione prenotazione, Model model) {
     	model.addAttribute("prenotazione", prenotazione);
-    	PrenotazioneDTO result = prenotazioneRepo.findByCF(prenotazione.getCodiceFiscale());
-    	return "/cliente/controlloStorico";
+    	
+    	//prendiamo tutte le prenotazioni effettuate con il CF inserito
+    	List<PrenotazioneDTO> prenotazioneDTO = new ArrayList<PrenotazioneDTO>(); 
+    	
+    	for (Prenotazione result : prenotazioneRepo.findAllByCodiceFiscale(prenotazione.getCodiceFiscale())) {
+			PrenotazioneDTO tmp = new PrenotazioneDTO();
+			tmp.setCliente(clienteRepo.findByCodiceFiscale(prenotazione.getCodiceFiscale()));
+			tmp.setPrenotazione(result);
+			prenotazioneDTO.add(tmp);
+		}
+    	
+    	if(prenotazioneDTO != null) {
+    		model.addAttribute("prenotazioneDTO", prenotazioneDTO);
+    		model.addAttribute("cerca", false);
+    		return "/cliente/controlloStorico";
+    	}
+    	else    	
+    		return "Non hai mai effettuato prenotazioni";
     }
 }

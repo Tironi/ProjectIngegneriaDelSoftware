@@ -2,55 +2,37 @@ package com.pack.aeroporto.object;
 
 import java.util.List;
 
+import com.pack.aeroporto.entity.Cliente;
 import com.pack.aeroporto.entity.Prenotazione;
 
 public class PrenotazioneDTO {
 
-	private String codiceFiscale;
-	private String nome;
-    private String cognome;
-    private Prenotazione prenotazione;
-    private String codiceVolo;
-    private List voli;
+	private Prenotazione prenotazione;
+	private Cliente cliente;
     private List compagniaAmici;
     
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public String getCodiceFiscale() {
-        return codiceFiscale;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public void setCodiceFiscale(String codiceFiscale) {
-        this.codiceFiscale = codiceFiscale;
-    }
-    
-	public String getCodiceVolo() {
-		return codiceVolo;
+   	public Prenotazione getPrenotazione() {
+		return prenotazione;
 	}
 
-	public void setCodiceVolo(String codiceVolo) {
-		this.codiceVolo = codiceVolo;
+	public void setPrenotazione(Prenotazione prenotazione) {
+		this.prenotazione = prenotazione;
 	}
 
-	public List getVoli() {
-		return voli;
+	public List getCompagniaAmici() {
+		return compagniaAmici;
 	}
 
-	public void setVoli(List voli) {
-		this.voli = voli;
+	public void setCompagniaAmici(List compagniaAmici) {
+		this.compagniaAmici = compagniaAmici;
 	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
 }

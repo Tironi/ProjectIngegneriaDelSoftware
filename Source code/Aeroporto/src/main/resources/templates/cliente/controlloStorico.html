@@ -6,35 +6,51 @@
 <title>Controllo storico</title>
 </head>
 <body>
-	<form th:action="@{/cliente/controlloStorico}" th:object="${prenotazione}" method="post">
-		<div th:if="${prenotazione.codiceFiscale == null}">
-			<label for="fcodiceFiscale">Codice fiscale: </label>
-		    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
-		    <input type="submit" value="Cerca">
+	<div th:if="${cerca}"> 
+		<!-- condizione valutata solo al primo accesso
+		alla pagina, dopodiche il CF inserito (che sarà nell'oggetto Prenotazione) non sarà più nullo -->
+		
+			<form th:action="@{/cliente/controlloStorico}"  th:object="${prenotazione}"  method="post">
+				<label for="fcodiceFiscale">Codice fiscale: </label>
+			    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale"  required="required">
+			    <input type="submit" value="Cerca">
+		    </form>
 		</div>
-		<div th:unless="${prenotazione.codiceFiscale != null}">
+		<div th:unless="${cerca}">
 			<table>
 			   <thead>
 			        <tr>
-			            <th> Codice </th>
-			            <th> Aeroporto Partenza </th>
-			            <th> Aeroporto Arrivo </th>
-			            <th> Orario </th>
-			            <th> Codice Aereo </th>
-			            <th> Prezzo </th>
+			            <th> Codice Fiscale</th>
+			            <th> Codice Volo </th>
+			            <th> Nome </th>
+			            <th> Cognome </th>
 			        </tr>
 		    	</thead>
 			    <tbody>
-			        <tr th:each="volo : ${voli}">
-			            <td><span th:text="${volo.getCodice()}">  </span></td>
-			            <td><span th:text="${volo.getAeroportoPartenza()}">  </span></td>
-			            <td><span th:text="${volo.getAeroportoArrivo()}">  </span></td>
-			            <td><span th:text="${volo.getOrario()}">  </span></td>
-			            <td><span th:text	="${volo.getPrezzo()}">  </span></td>
+			        <tr th:each="prenotazioni : ${prenotazioneDTO}">
+			            <td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
+			            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
+			            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
+			            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
 			        </tr>
 			    </tbody>
 		    </table>
+		    
+		    <table>
+        <tr>
+            <td>
+				<form th:action="@{/controlloStorico}" >
+				   <input type="submit" value="Controllo storico">
+			 	</form>
+			</td>
+            
+			<td>
+				<form th:action="@{/cliente}" >
+				   <input type="submit" value="Menu">
+			 	</form>
+			</td>
+        </tr>
+    </table>
 		</div>
-	</form>
 </body>
 </html>
