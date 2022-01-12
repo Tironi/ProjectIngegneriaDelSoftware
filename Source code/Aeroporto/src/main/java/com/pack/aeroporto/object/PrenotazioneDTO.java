@@ -7,25 +7,31 @@ import com.pack.aeroporto.entity.Prenotazione;
 
 public class PrenotazioneDTO {
 
-	private Prenotazione prenotazione;
-	private Cliente cliente;
+  
+    private Cliente cliente;
+    private Prenotazione prenotazione;
+    
+    private String codiceVolo;
+    
     private List compagniaAmici;
     
-   	public Prenotazione getPrenotazione() {
-		return prenotazione;
+    public PrenotazioneDTO(){
+    	cliente = new Cliente();
+    	prenotazione = new Prenotazione();
+    }
+
+	public String getCodiceVolo() {
+		return codiceVolo;
 	}
 
-	public void setPrenotazione(Prenotazione prenotazione) {
-		this.prenotazione = prenotazione;
+	public void setCompagniaAmici(List compagniaAmici) {
+		this.compagniaAmici = compagniaAmici;
 	}
 
 	public List getCompagniaAmici() {
 		return compagniaAmici;
 	}
 
-	public void setCompagniaAmici(List compagniaAmici) {
-		this.compagniaAmici = compagniaAmici;
-	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -34,5 +40,13 @@ public class PrenotazioneDTO {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
+	public Prenotazione getPrenotazione() {
+		return prenotazione;
+	}
+
+	public void setPrenotazione(Prenotazione prenotazione) {
+		this.prenotazione = prenotazione;
+	}
+        
 }

@@ -46,8 +46,6 @@ public class ClienteController {
     	
     	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
     	
-    	prenotazioneDTO.setVoli(result);
-    	
     	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
     	model.addAttribute("voli", voloRepo.findAll());
     	
@@ -57,24 +55,29 @@ public class ClienteController {
     @PostMapping("/cliente/effettuaPrenotazione")
     public String postEffettuaPrenotazione(@ModelAttribute PrenotazioneDTO prenotazioneDTO, Model model) {
     	
-    	Optional<Cliente> cliente = clienteRepo.findById(prenotazioneDTO.getCodiceFiscale());
+    	Cliente clienteResult = prenotazioneDTO.getCliente();
+    	Prenotazione prenotazioneResult = prenotazioneDTO.getPrenotazione();
     	
+    	Optional<Cliente> cliente = clienteRepo.findById(clienteResult.getCodiceFiscale());
+    	
+    	//se il cliente non è ancora presente nel db
     	if(cliente == null) {
     		//salvataggio del cliente
     		
     		Cliente input = new Cliente();
-    		input.setCodiceFiscale(prenotazioneDTO.getCodiceFiscale());
+    		input.setCodiceFiscale(clienteResult.getCodiceFiscale());
     		clienteRepo.save(input);
     	}
     	
     	//salvataggio prenotazione
     	
     	Prenotazione input = new Prenotazione();
-    	input.setCodiceFiscale(prenotazioneDTO.getCodiceFiscale());
-    	input.setCodiceVolo(prenotazioneDTO.getCodiceVolo());
+    	input.setCodiceFiscale(clienteResult.getCodiceFiscale());
+    	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
     	prenotazioneRepo.save(input);
     	
-    	return "/cliente";
+    	model.addAttribute("esito", true);
+    	return "/cliente/esitoPrenotazione";
     }
     */
     @GetMapping("/controlloStorico")
@@ -87,7 +90,7 @@ public class ClienteController {
     @PostMapping("/cliente/controlloStorico")
     public String mostraStorico(@ModelAttribute Prenotazione prenotazione, Model model) {
     	model.addAttribute("prenotazione", prenotazione);
-    	
+	
     	//prendiamo tutte le prenotazioni effettuate con il CF inserito
     	List<PrenotazioneDTO> prenotazioneDTO = new ArrayList<PrenotazioneDTO>(); 
     	
@@ -105,5 +108,17 @@ public class ClienteController {
     	}
     	else    	
     		return "Non hai mai effettuato prenotazioni";
+
+
     }
+    
+    @PostMapping("controlloStorico")
+    public String controlloStorico(@ModelAttribute Prenotazione prenotazione, Model model) {
+    	model.addAttribute(new PrenotazioneDTO());
+    	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
+    	    	
+    	return "/cliente/controlloStorico";
+    }
+    
+    
 }

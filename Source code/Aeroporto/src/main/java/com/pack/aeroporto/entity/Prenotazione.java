@@ -27,9 +27,4 @@ public class Prenotazione {
     public void setCodiceVolo(String codiceVolo) {
         this.codiceVolo = codiceVolo;
     }
-
-	public Set<Prenotazione> getPrenotaPerAmici() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

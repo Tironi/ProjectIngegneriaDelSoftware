@@ -7,4 +7,5 @@ import com.pack.aeroporto.entity.*;
 public interface IOperatoreRepository extends CrudRepository<Operatore, Long>{
 
   Operatore findByEmail(String email);
+  
 }
