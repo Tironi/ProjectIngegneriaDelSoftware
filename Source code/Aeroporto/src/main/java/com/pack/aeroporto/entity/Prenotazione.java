@@ -13,11 +13,13 @@ public class Prenotazione {
     private boolean valigiaCabina; 
     private String codiceVolo;
 
+    private int numPosto;
+
     public String getCodiceFiscale() {
         return codiceFiscale;
     }
 
-    public String getCodiceVolo() {
+    public Long getCodiceVolo() {
         return codiceVolo;
     }
 
@@ -25,7 +27,7 @@ public class Prenotazione {
         this.codiceFiscale = codiceFiscale;
     }
 
-    public void setCodiceVolo(String codiceVolo) {
+    public void setCodiceVolo(Long codiceVolo) {
         this.codiceVolo = codiceVolo;
     }
 
@@ -35,5 +37,12 @@ public class Prenotazione {
 
 	public void setValigiaCabina(boolean valigiaCabina) {
 		this.valigiaCabina = valigiaCabina;
+
+	public int getNumPosto() {
+		return numPosto;
+	}
+
+	public void setNumPosto(int numPosto) {
+		this.numPosto = numPosto;
 	}
 }

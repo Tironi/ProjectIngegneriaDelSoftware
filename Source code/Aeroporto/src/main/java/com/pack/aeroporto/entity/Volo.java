@@ -20,17 +20,17 @@ import java.util.Date;
 @Entity
 public class Volo {
 
-    private @Id @GeneratedValue Long codice;
+    private @Id @GeneratedValue Long codiceVolo;
     private String aeroportoPartenza;
     private String aeroportoArrivo;
     
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date orario;
-    private long codiceAereo;
+    private Long codiceAereo;
     private double prezzo;
 
-    public Long getCodice() {
-        return codice;
+    public Long getCodiceVolo() {
+        return codiceVolo;
     }
     
     public String getAeroportoPartenza() {
@@ -46,7 +46,7 @@ public class Volo {
     }
     
 
-    public long getCodiceAereo() {
+    public Long getCodiceAereo() {
         return codiceAereo;
     }
 
@@ -67,7 +67,7 @@ public class Volo {
     }
     
 
-    public void setCodiceAereo(long codiceAereo) {
+    public void setCodiceAereo(Long codiceAereo) {
         this.codiceAereo = codiceAereo;
     }
 
