@@ -101,13 +101,15 @@ public class ClienteController {
 			prenotazioneDTO.add(tmp);
 		}
     	
-    	if(prenotazioneDTO != null) {
+    	if(!prenotazioneDTO.isEmpty()) {
     		model.addAttribute("prenotazioneDTO", prenotazioneDTO);
     		model.addAttribute("cerca", false);
     		return "/cliente/controlloStorico";
     	}
-    	else    	
-    		return "Non hai mai effettuato prenotazioni";
+    	else {
+    		model.addAttribute("status", "Non hai effettuato prenotazioni");
+    		return "/cliente/error";
+    	}
 
 
     }
