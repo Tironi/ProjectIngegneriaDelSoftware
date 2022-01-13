@@ -50,11 +50,12 @@ public class ClienteController {
     	
     	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
     	
-    	for (Iterator<Volo> i = result.iterator(); i.hasNext();) {
-    		Volo v = (Volo) i;
-    		List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(v.getCodiceVolo());
-    		v.setPostiDisp(p.size());
-    	}
+    	Iterator t = result.iterator(); 
+    	while(t.hasNext()) {
+		    Volo v = (Volo) t.next();
+		    List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(v.getCodiceVolo());
+  			v.setPostiDisp(p.size());
+		}
     	
     	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
     	model.addAttribute("voli", voloRepo.findAll());
@@ -83,12 +84,21 @@ public class ClienteController {
     	Volo v = voloRepo.findByCodiceVolo(prenotazioneResult.getCodiceVolo());
     	Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
     	List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(prenotazioneResult.getCodiceVolo());
-    	int postiOccupati = p.size();
-    	int postiTotali = a.get_num_bagagli_cabina();
     	
-    	model.addAttribute("postiRimanenti", (postiTotali - postiOccupati));
+    	int postiValigieCabinaOccupati = 0;    	
+    	Iterator t = p.iterator();
+    	while(t.hasNext()) {
+    		Prenotazione prenotazioneItem = (Prenotazione) t.next();
+		    if(prenotazioneItem.isValigiaCabina()) {
+    			postiValigieCabinaOccupati +=1;
+    		}
+		}
     	
-    	if(postiTotali - postiOccupati == 0) {
+    	int postiValigieCabinaTotali = a.get_num_bagagli_cabina();
+    	
+    	model.addAttribute("postiRimanenti", (postiValigieCabinaTotali - postiValigieCabinaOccupati));
+    	
+    	if(postiValigieCabinaTotali - postiValigieCabinaOccupati == 0) {
     		model.addAttribute("esito", false);
     		model.addAttribute("status", "Non ci sono più posti disponibili sul volo");
     		return "/cliente/esitoPrenotazione";
@@ -99,7 +109,7 @@ public class ClienteController {
     	Prenotazione input = new Prenotazione();
     	input.setCodiceFiscale(clienteResult.getCodiceFiscale());
     	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
-    	input.setNumPosto(postiOccupati + 1);
+    	input.setNumPosto(postiValigieCabinaOccupati + 1);
     	prenotazioneRepo.save(input);
     	
     	model.addAttribute("esito", true);

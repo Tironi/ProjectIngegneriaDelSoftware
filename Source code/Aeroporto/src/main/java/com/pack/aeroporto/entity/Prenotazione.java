@@ -10,8 +10,9 @@ public class Prenotazione {
 	@Id
 	private String codiceFiscale;
 	@Id
-    private boolean valigiaCabina; 
-    private Long codiceVolo;
+	private Long codiceVolo;
+	
+	private boolean valigiaCabina;
 
     private int numPosto;
 
