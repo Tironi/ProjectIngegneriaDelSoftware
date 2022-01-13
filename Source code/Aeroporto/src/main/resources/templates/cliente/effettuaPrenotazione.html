@@ -13,11 +13,11 @@
 			Scegli un volo :
 			<select th:field="*{prenotazione.codiceVolo}">
 				<option value="0">Seleziona volo</option>
-    			<option th:each="volo : ${voli}" th:value="${volo.codice}" th:text="${volo.codice}"></option>
+    			<option th:each="volo : ${voli}" th:value="${volo.codiceVolo}" th:text="${volo.codiceVolo}"></option>
 			</select>
 		</p>
 		
-		<p>Posti rimanenti: 10</p>
+
 		<label for="fcodiceFiscale">Codice fiscale: </label>
 	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
 		<label for="fcodiceFiscale">Nome: </label>

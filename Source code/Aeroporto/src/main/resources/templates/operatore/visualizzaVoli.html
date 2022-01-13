@@ -26,7 +26,7 @@
     	</thead>
 	    <tbody>
 	        <tr th:each="volo : ${voli}">
-	            <td><span th:text="${volo.getCodice()}">  </span></td>
+	            <td><span th:text="${volo.getCodiceVolo()}">  </span></td>
 	            <td><span th:text="${volo.getAeroportoPartenza()}">  </span></td>
 	            <td><span th:text="${volo.getAeroportoArrivo()}">  </span></td>
 	            <td><span th:text="${#dates.format(volo.getOrario(), 'dd-MM-yyyy HH:mm')}">  </span></td>

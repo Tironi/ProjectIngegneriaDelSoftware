@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.google.common.collect.Lists;
+import com.pack.aeroporto.entity.Aereo;
 import com.pack.aeroporto.entity.Cliente;
 import com.pack.aeroporto.entity.Prenotazione;
 import com.pack.aeroporto.entity.Volo;
 import com.pack.aeroporto.object.PrenotazioneDTO;
+import com.pack.aeroporto.repository.IAereoRepository;
 import com.pack.aeroporto.repository.IClienteRepository;
 import com.pack.aeroporto.repository.IPrenotazioneRepository;
 import com.pack.aeroporto.repository.IVoloRepository;
@@ -26,11 +28,13 @@ public class ClienteController {
 	IVoloRepository voloRepo; 
 	IClienteRepository clienteRepo; 
 	IPrenotazioneRepository prenotazioneRepo; 
+	IAereoRepository aereoRepo;
 	
-	ClienteController(IVoloRepository voloRepository, IClienteRepository clienteRepository, IPrenotazioneRepository prenotazioneRepository){
+	ClienteController(IVoloRepository voloRepository, IClienteRepository clienteRepository, IPrenotazioneRepository prenotazioneRepository, IAereoRepository aereoRepository){
 		this.voloRepo = voloRepository;
 		this.clienteRepo = clienteRepository;
 		this.prenotazioneRepo = prenotazioneRepository;
+		this.aereoRepo = aereoRepository;
 	}
 	
     @GetMapping("/cliente")
@@ -69,11 +73,28 @@ public class ClienteController {
     		clienteRepo.save(input);
     	}
     	
+    	//calcolo del numero di posti ancora disponibili
+    	Volo v = voloRepo.findByCodiceVolo(prenotazioneResult.getCodiceVolo());
+    	Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
+    	List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(prenotazioneResult.getCodiceVolo());
+    	int postiOccupati = p.size();
+    	int postiTotali = a.get_num_bagagli_cabina();
+    	
+    	model.addAttribute("postiRimanenti", (postiTotali - postiOccupati));
+    	
+    	if(postiTotali - postiOccupati == 0) {
+    		model.addAttribute("esito", false);
+    		return "/cliente/esitoPrenotazione";
+    	}
+    	
+    	
+    	
     	//salvataggio prenotazione
     	
     	Prenotazione input = new Prenotazione();
     	input.setCodiceFiscale(clienteResult.getCodiceFiscale());
     	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
+    	input.setNumPosto(postiOccupati + 1);
     	prenotazioneRepo.save(input);
     	
     	model.addAttribute("esito", true);
@@ -98,7 +119,7 @@ public class ClienteController {
 			PrenotazioneDTO tmp = new PrenotazioneDTO();
 			
 			if(clienteRepo.findByCodiceFiscale(prenotazione.getCodiceFiscale()) == null)
-				return "/cliente/erroreControlloStorico";
+				return "/cliente/error";
 			
 			tmp.setCliente(clienteRepo.findByCodiceFiscale(prenotazione.getCodiceFiscale()));
 			tmp.setPrenotazione(result);

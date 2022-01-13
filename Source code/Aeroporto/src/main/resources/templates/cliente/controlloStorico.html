@@ -31,6 +31,7 @@
 			        <tr>
 			            <th> Codice Fiscale</th>
 			            <th> Codice Volo </th>
+			            <th> Numero del posto assegnato </th>
 			            <th> Nome </th>
 			            <th> Cognome </th>
 			        </tr>
@@ -39,6 +40,7 @@
 			        <tr th:each="prenotazioni : ${prenotazioneDTO}">
 			            <td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
 			            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
+			            <td><span th:text="${prenotazioni.prenotazione.getNumPosto()}">  </span></td>
 			            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
 			            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
 			        </tr>

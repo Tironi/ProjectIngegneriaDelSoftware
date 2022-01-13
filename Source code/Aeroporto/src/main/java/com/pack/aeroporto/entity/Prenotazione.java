@@ -9,14 +9,14 @@ import javax.persistence.Id;
 public class Prenotazione {
 
 	private @Id String codiceFiscale;
-    //private Posto posto;
-    private String codiceVolo;
+    private Long codiceVolo;
+    private int numPosto;
 
     public String getCodiceFiscale() {
         return codiceFiscale;
     }
 
-    public String getCodiceVolo() {
+    public Long getCodiceVolo() {
         return codiceVolo;
     }
 
@@ -24,7 +24,15 @@ public class Prenotazione {
         this.codiceFiscale = codiceFiscale;
     }
 
-    public void setCodiceVolo(String codiceVolo) {
+    public void setCodiceVolo(Long codiceVolo) {
         this.codiceVolo = codiceVolo;
     }
+
+	public int getNumPosto() {
+		return numPosto;
+	}
+
+	public void setNumPosto(int numPosto) {
+		this.numPosto = numPosto;
+	}
 }

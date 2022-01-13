@@ -23,7 +23,7 @@
     	</thead>
 	    <tbody>
 	        <tr th:each="aereo : ${aerei}">
-	            <td><span th:text="${aereo.getCodice()}">  </span></td>
+	            <td><span th:text="${aereo.getCodiceAereo()}">  </span></td>
 	            <td><span th:text="${aereo.get_num_bagagli_cabina()}">  </span></td>
 	        </tr>
 	    </tbody>
@@ -36,7 +36,7 @@
 	  <label for="codiceAereo">Codice aereo:</label>
 
 		<select th:field="*{codiceAereo}">
-		    <option th:each="aereo : ${aerei}" th:value="${aereo.getCodice()}" th:text="${aereo.getCodice()}"></option>
+		    <option th:each="aereo : ${aerei}" th:value="${aereo.getCodiceAereo()}" th:text="${aereo.getCodiceAereo()}"></option>
 		</select><br><br>
 	  
 	  
