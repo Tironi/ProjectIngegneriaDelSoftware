@@ -28,6 +28,7 @@ public class Volo {
     private Date orario;
     private Long codiceAereo;
     private double prezzo;
+    private int postiDisp;
 
     public Long getCodiceVolo() {
         return codiceVolo;
@@ -74,4 +75,12 @@ public class Volo {
     public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
+
+	public int getPostiDisp() {
+		return postiDisp;
+	}
+
+	public void setPostiDisp(int postiDisp) {
+		this.postiDisp = postiDisp;
+	}
 }

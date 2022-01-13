@@ -50,6 +50,12 @@ public class ClienteController {
     	
     	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
     	
+    	for (Iterator<Volo> i = result.iterator(); i.hasNext();) {
+    		Volo v = (Volo) i;
+    		List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(v.getCodiceVolo());
+    		v.setPostiDisp(p.size());
+    	}
+    	
     	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
     	model.addAttribute("voli", voloRepo.findAll());
     	
@@ -63,7 +69,6 @@ public class ClienteController {
     	Prenotazione prenotazioneResult = prenotazioneDTO.getPrenotazione();
     	
     	Optional<Cliente> cliente = Optional.ofNullable(clienteRepo.findById(clienteResult.getCodiceFiscale()).orElse(null));
-    	
     	
     	//se il cliente non è ancora presente nel db
     	if(!cliente.isPresent()) {
@@ -87,8 +92,6 @@ public class ClienteController {
     		model.addAttribute("esito", false);
     		return "/cliente/esitoPrenotazione";
     	}
-    	
-    	
     	
     	//salvataggio prenotazione
     	

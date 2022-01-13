@@ -15,19 +15,6 @@
 				<option value="0">Seleziona volo</option>
     			<option th:each="volo : ${voli}" th:value="${volo.codiceVolo}" th:text="${volo.codiceVolo}"></option>
 			</select>
-			
-			<table>
-			    <tbody>
-			        <tr th:each="volo : ${voli}">
-			            <td><span th:text="${volo.getCodice()}">  </span></td>
-			            <td><span th:text="${volo.getAeroportoPartenza()}">  </span></td>
-			            <td><span th:text="${volo.getAeroportoArrivo()}">  </span></td>
-			            <td><span th:text="${volo.getOrario()}">  </span></td>
-			            <td><span th:text	="${volo.getPrezzo()}">  </span></td>
-	    				<input type="submit" value="Seleziona">
-			        </tr>
-			    </tbody>
-		    </table>
 		</p>
 		
 
