@@ -11,39 +11,26 @@
 	<form th:action="@{/cliente/effettuaPrenotazione}" th:object="${prenotazioneDTO}" method="post">
 		<p>	
 			Scegli un volo :
-			<select th:field="*{prenotazione.codiceVolo}">
-				<option value="0">Seleziona volo</option>
+			<select th:field="*{prenotazione.codiceVolo}" required="required">
     			<option th:each="volo : ${voli}" th:value="${volo.codiceVolo}" th:text="${volo.codiceVolo}"></option>
 			</select>
 			
-			<table>
-			    <tbody>
-			        <tr th:each="volo : ${voli}">
-			            <td><span th:text="${volo.getCodice()}">  </span></td>
-			            <td><span th:text="${volo.getAeroportoPartenza()}">  </span></td>
-			            <td><span th:text="${volo.getAeroportoArrivo()}">  </span></td>
-			            <td><span th:text="${volo.getOrario()}">  </span></td>
-			            <td><span th:text	="${volo.getPrezzo()}">  </span></td>
-	    				<input type="submit" value="Seleziona">
-			        </tr>
-			    </tbody>
-		    </table>
 		</p>
 		
 
 		<label for="fcodiceFiscale">Codice fiscale: </label>
-	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
+	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale" required="required">
 		<label for="fcodiceFiscale">Nome: </label>
-	    <input type="text" th:field="*{cliente.nome}" id="nome" name="nome">
+	    <input type="text" th:field="*{cliente.nome}" id="nome" name="nome" required="required">
 		<label for="fcodiceFiscale">Cognome: </label>
-	    <input type="text" th:field="*{cliente.cognome}" id="cognome" name="cognome">
+	    <input type="text" th:field="*{cliente.cognome}" id="cognome" name="cognome" required="required">
 	    
 	     <div class="form-group">
 	         <div>
-		         <input type="radio" id="option1" name="option1" value="1">
+		         <input type="radio" id="option1" name="option1" value="1" required="required">
 		         <label for="option1">Valigia in cabina</label>
 		         
-		         <input type="radio" id="option2" name="option1" value="2">
+		         <input type="radio" id="option2" name="option1" value="2" required="required">
 		         <label for="option2">Valigia in stiva</label>
 	         </div>
          </div>

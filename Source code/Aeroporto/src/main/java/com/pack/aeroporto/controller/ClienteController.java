@@ -85,6 +85,7 @@ public class ClienteController {
     	
     	if(postiTotali - postiOccupati == 0) {
     		model.addAttribute("esito", false);
+    		model.addAttribute("status", "Non ci sono più posti disponibili sul volo");
     		return "/cliente/esitoPrenotazione";
     	}
     	
@@ -99,6 +100,7 @@ public class ClienteController {
     	prenotazioneRepo.save(input);
     	
     	model.addAttribute("esito", true);
+    	model.addAttribute("status", "Prenotazione andata a buon fine");
     	return "/cliente/esitoPrenotazione";
     }
     
