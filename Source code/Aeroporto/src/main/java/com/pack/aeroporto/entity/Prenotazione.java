@@ -8,9 +8,18 @@ import javax.persistence.Id;
 @Entity
 public class Prenotazione {
 
+<<<<<<< Updated upstream
 	private @Id String codiceFiscale;
     //private Posto posto;
     private String codiceVolo;
+=======
+	@Id
+	private String codiceFiscale;
+	@Id
+    private boolean valigiaCabina; 
+	
+    private Long codiceVolo;
+>>>>>>> Stashed changes
 
     public String getCodiceFiscale() {
         return codiceFiscale;
@@ -27,4 +36,23 @@ public class Prenotazione {
     public void setCodiceVolo(String codiceVolo) {
         this.codiceVolo = codiceVolo;
     }
+<<<<<<< Updated upstream
+=======
+
+	public boolean isValigiaCabina() {
+		return valigiaCabina;
+	}
+
+	public void setValigiaCabina(boolean valigiaCabina) {
+		this.valigiaCabina = valigiaCabina;
+	}
+
+	public int getNumPosto() {
+		return numPosto;
+	}
+
+	public void setNumPosto(int numPosto) {
+		this.numPosto = numPosto;
+	}
+>>>>>>> Stashed changes
 }
