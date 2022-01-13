@@ -25,7 +25,7 @@ public class Volo {
     private String aeroportoArrivo;
 
     
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date orario;
     private long codiceAereo;
     private double prezzo;

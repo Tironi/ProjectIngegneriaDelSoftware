@@ -96,18 +96,22 @@ public class ClienteController {
     	
     	for (Prenotazione result : prenotazioneRepo.findAllByCodiceFiscale(prenotazione.getCodiceFiscale())) {
 			PrenotazioneDTO tmp = new PrenotazioneDTO();
+			
+			if(clienteRepo.findByCodiceFiscale(prenotazione.getCodiceFiscale()) == null)
+				return "/cliente/erroreControlloStorico";
+			
 			tmp.setCliente(clienteRepo.findByCodiceFiscale(prenotazione.getCodiceFiscale()));
 			tmp.setPrenotazione(result);
 			prenotazioneDTO.add(tmp);
 		}
     	
-    	if(prenotazioneDTO != null) {
+    	if(!prenotazioneDTO.isEmpty()) {
     		model.addAttribute("prenotazioneDTO", prenotazioneDTO);
     		model.addAttribute("cerca", false);
     		return "/cliente/controlloStorico";
     	}
     	else    	
-    		return "Non hai mai effettuato prenotazioni";
+    		return "/cliente/erroreControlloStorico";
 
 
     }
