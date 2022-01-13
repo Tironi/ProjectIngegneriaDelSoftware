@@ -11,7 +11,7 @@
 	<form th:action="@{/cliente/effettuaPrenotazione}" th:object="${prenotazioneDTO}" method="post">
 		<p>	
 			Scegli un volo :
-			<select th:field="*{codiceVolo}">
+			<select th:field="*{prenotazione.codiceVolo}">
 				<option value="0">Seleziona volo</option>
     			<option th:each="volo : ${voli}" th:value="${volo.codice}" th:text="${volo.codice}"></option>
 			</select>
