@@ -1,11 +1,12 @@
 package com.pack.aeroporto.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Posto {
 
-	private int numero;
+	private @Id Long numero;
 	private int codiceAereo;
     private boolean prenotato;
     
