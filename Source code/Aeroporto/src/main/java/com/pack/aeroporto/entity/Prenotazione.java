@@ -1,15 +1,16 @@
 package com.pack.aeroporto.entity;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
-@Entity
+@Entity @IdClass(PrenotazioneKey.class)
 public class Prenotazione {
 
-	private @Id String codiceFiscale;
-    //private Posto posto;
+	@Id
+	private String codiceFiscale;
+	@Id
+    private boolean valigiaCabina; 
     private String codiceVolo;
 
     public String getCodiceFiscale() {
@@ -27,4 +28,12 @@ public class Prenotazione {
     public void setCodiceVolo(String codiceVolo) {
         this.codiceVolo = codiceVolo;
     }
+
+	public boolean isValigiaCabina() {
+		return valigiaCabina;
+	}
+
+	public void setValigiaCabina(boolean valigiaCabina) {
+		this.valigiaCabina = valigiaCabina;
+	}
 }
