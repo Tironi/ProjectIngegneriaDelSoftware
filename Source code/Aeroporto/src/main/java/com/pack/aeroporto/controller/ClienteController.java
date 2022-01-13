@@ -58,10 +58,11 @@ public class ClienteController {
     	Cliente clienteResult = prenotazioneDTO.getCliente();
     	Prenotazione prenotazioneResult = prenotazioneDTO.getPrenotazione();
     	
-    	Optional<Cliente> cliente = clienteRepo.findById(clienteResult.getCodiceFiscale());
+    	Optional<Cliente> cliente = Optional.ofNullable(clienteRepo.findById(clienteResult.getCodiceFiscale()).orElse(null));
+    	
     	
     	//se il cliente non è ancora presente nel db
-    	if(cliente == null) {
+    	if(!cliente.isPresent()) {
     		//salvataggio del cliente
     		
     		Cliente input = new Cliente();

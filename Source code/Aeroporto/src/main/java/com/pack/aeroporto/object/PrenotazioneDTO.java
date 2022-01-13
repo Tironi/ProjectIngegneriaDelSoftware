@@ -11,7 +11,7 @@ public class PrenotazioneDTO {
     private Cliente cliente;
     private Prenotazione prenotazione;
     
-    private String codiceVolo;
+    private Long codiceVolo;
     
     private List compagniaAmici;
     
@@ -19,10 +19,6 @@ public class PrenotazioneDTO {
     	cliente = new Cliente();
     	prenotazione = new Prenotazione();
     }
-
-	public String getCodiceVolo() {
-		return codiceVolo;
-	}
 
 	public void setCompagniaAmici(List compagniaAmici) {
 		this.compagniaAmici = compagniaAmici;
@@ -47,6 +43,16 @@ public class PrenotazioneDTO {
 
 	public void setPrenotazione(Prenotazione prenotazione) {
 		this.prenotazione = prenotazione;
+	}
+
+
+	public Long getCodiceVolo() {
+		return codiceVolo;
+	}
+
+
+	public void setCodiceVolo(Long codiceVolo) {
+		this.codiceVolo = codiceVolo;
 	}
         
 }
