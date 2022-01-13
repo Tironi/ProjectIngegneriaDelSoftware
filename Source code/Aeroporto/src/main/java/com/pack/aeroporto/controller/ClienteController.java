@@ -110,8 +110,10 @@ public class ClienteController {
     		model.addAttribute("cerca", false);
     		return "/cliente/controlloStorico";
     	}
-    	else    	
-    		return "/cliente/erroreControlloStorico";
+    	else {
+    		model.addAttribute("status", "Non hai effettuato prenotazioni");
+    		return "/cliente/error";
+    	}
 
 
     }

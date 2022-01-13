@@ -2,13 +2,17 @@ package com.pack.aeroporto.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
-@Entity
+@Entity @IdClass(CompagniViaggioKey.class)
 public class CompagniViaggio {
-
-	private @Id String codiceFiscaleCliente;
-    private String codiceFiscaleAmico;
-    private String codiceVolo;
+	
+	@Id
+	private String codiceFiscaleCliente;
+	@Id
+	private String codiceFiscaleAmico;
+	@Id
+	private String codiceVolo;
     
 	public String getCodiceFiscaleCliente() {
 		return codiceFiscaleCliente;

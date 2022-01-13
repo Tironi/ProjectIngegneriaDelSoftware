@@ -6,9 +6,9 @@ import javax.persistence.Id;
 @Entity
 public class Operatore {
 
+	private @Id String email;
     private String nome;
     private String cognome;
-    private @Id String email;
     private String PSW;
     
     public Operatore() {
