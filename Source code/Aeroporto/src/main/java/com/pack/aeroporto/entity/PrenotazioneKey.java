@@ -4,5 +4,5 @@ import java.io.Serializable;
 
 public class PrenotazioneKey implements Serializable {
 	private String codiceFiscale;
-    private String codiceVolo;
+    private Long codiceVolo;
 }
