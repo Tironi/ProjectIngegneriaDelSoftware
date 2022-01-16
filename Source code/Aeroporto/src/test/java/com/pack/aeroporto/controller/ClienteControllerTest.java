@@ -8,6 +8,8 @@ import com.pack.aeroporto.object.PrenotazioneDTO;
 
 public class ClienteControllerTest {
 
+	
+	
 	@Test
 	public void postEffettuaPrenotazioneTest(@ModelAttribute PrenotazioneDTO prenotazioneDTO, Model model) {
 		
