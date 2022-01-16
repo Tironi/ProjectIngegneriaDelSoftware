@@ -16,7 +16,6 @@
 			</select>
 		</p>
 		
-
 		<label for="fcodiceFiscale">Codice fiscale: </label>
 	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale" required="required">
 		<label for="fcodiceFiscale">Nome: </label>
@@ -24,12 +23,12 @@
 		<label for="fcodiceFiscale">Cognome: </label>
 	    <input type="text" th:field="*{cliente.cognome}" id="cognome" name="cognome" required="required">
 	    
-	     <div class="form-group">
+	     <div class="form-group" th:field="*{$valigiaCabina}">
 	         <div>
-		         <input type="radio" id="option1" name="option1" value="1" required="required">
+		         <input type="radio" id="option1" name="option1" value="0" required="required">
 		         <label for="option1">Valigia in cabina</label>
 		         
-		         <input type="radio" id="option2" name="option1" value="2" required="required">
+		         <input type="radio" id="option2" name="option1" value="1" required="required">
 		         <label for="option2">Valigia in stiva</label>
 	         </div>
          </div>
