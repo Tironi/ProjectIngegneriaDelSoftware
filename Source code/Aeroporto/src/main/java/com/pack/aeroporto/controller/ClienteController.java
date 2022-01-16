@@ -53,12 +53,21 @@ public class ClienteController {
     	Iterator t = result.iterator(); 
     	while(t.hasNext()) {
 		    Volo v = (Volo) t.next();
+		    Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
 		    List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(v.getCodiceVolo());
-  			v.setPostiDisp(p.size());
+  			v.setPostiDisp(a.get_num_bagagli_cabina() - p.size());
+  			if(v.getPostiDisp() == 0) {
+  				t.remove();
+  			}
 		}
     	
+    	if(result.size() == 0) {
+    		model.addAttribute("status", "Nessun volo disponibile");
+    		return "/cliente/error";
+    	}
+    	
     	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
-    	model.addAttribute("voli", voloRepo.findAll());
+    	model.addAttribute("voli", result);
     	
     	return "/cliente/effettuaPrenotazione";
     }
@@ -68,6 +77,8 @@ public class ClienteController {
     	
     	Cliente clienteResult = prenotazioneDTO.getCliente();
     	Prenotazione prenotazioneResult = prenotazioneDTO.getPrenotazione();
+    	Volo v = voloRepo.findByCodiceVolo(prenotazioneResult.getCodiceVolo());
+    	Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
     	
     	Optional<Cliente> cliente = Optional.ofNullable(clienteRepo.findById(clienteResult.getCodiceFiscale()).orElse(null));
     	
@@ -81,10 +92,28 @@ public class ClienteController {
     		input.setCognome(clienteResult.getCognome());
     		clienteRepo.save(input);
     	}
+    	    	
+    	int postiValigieCabinaOccupati = numeroPostiDisponibili(prenotazioneResult);
     	
+    	//salvataggio prenotazione
+    	
+    	Prenotazione input = new Prenotazione();
+    	input.setCodiceFiscale(clienteResult.getCodiceFiscale());
+    	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
+    	input.setNumPosto(postiValigieCabinaOccupati + 1);
+    	input.setValigiaCabina(prenotazioneResult.isValigiaCabina());
+
+    	prenotazioneRepo.save(input);
+    	
+    	model.addAttribute("esito", true);
+    	model.addAttribute("status", "Prenotazione andata a buon fine");
+    	
+    	return "/cliente/esitoPrenotazione";
+    }
+    
+    private int numeroPostiDisponibili(Prenotazione prenotazioneResult) {
     	//calcolo del numero di posti ancora disponibili
-    	Volo v = voloRepo.findByCodiceVolo(prenotazioneResult.getCodiceVolo());
-    	Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
+    	
     	List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(prenotazioneResult.getCodiceVolo());
     	
     	int postiValigieCabinaOccupati = 0;    	
@@ -96,31 +125,10 @@ public class ClienteController {
     		}
 		}
     	
-    	int postiValigieCabinaTotali = a.get_num_bagagli_cabina();
-    	
-    	model.addAttribute("postiRimanenti", (postiValigieCabinaTotali - postiValigieCabinaOccupati));
-    	
-    	if(postiValigieCabinaTotali - postiValigieCabinaOccupati == 0) {
-    		model.addAttribute("esito", false);
-    		model.addAttribute("status", "Non ci sono più posti disponibili sul volo");
-    		return "/cliente/esitoPrenotazione";
-    	}
-    	
-    	//salvataggio prenotazione
-    	
-    	Prenotazione input = new Prenotazione();
-    	input.setCodiceFiscale(clienteResult.getCodiceFiscale());
-    	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
-    	input.setNumPosto(postiValigieCabinaOccupati + 1);
-    	input.setValigiaCabina(prenotazioneResult.getValigiaCabina());
-    	prenotazioneRepo.save(input);
-    	
-    	model.addAttribute("esito", true);
-    	model.addAttribute("status", "Prenotazione andata a buon fine");
-    	return "/cliente/esitoPrenotazione";
-    }
-    
-    @GetMapping("/controlloStorico")
+    	return postiValigieCabinaOccupati;
+	}
+
+	@GetMapping("/controlloStorico")
     public String controlloStorico(Model model) {
     	model.addAttribute(new Prenotazione());
     	model.addAttribute("cerca", true);
