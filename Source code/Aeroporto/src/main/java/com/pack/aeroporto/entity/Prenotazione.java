@@ -12,7 +12,7 @@ public class Prenotazione {
 	@Id
 	private Long codiceVolo;
 	
-	private boolean valigiaCabina;
+	private boolean valigiaCabina;   // 0 in cabina, 1 in stiva
 
     private int numPosto;
 
@@ -38,6 +38,10 @@ public class Prenotazione {
 
 	public void setValigiaCabina(boolean valigiaCabina) {
 		this.valigiaCabina = valigiaCabina;
+	}
+	
+	public boolean getValigiaCabina() {
+		return valigiaCabina;
 	}
 
 	public int getNumPosto() {

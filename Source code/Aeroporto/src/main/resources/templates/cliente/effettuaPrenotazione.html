@@ -25,10 +25,10 @@
 	    
 	     <div class="form-group" th:field="*{$valigiaCabina}">
 	         <div>
-		         <input type="radio" id="option1" name="option1" value="0" required="required">
+		         <input type="radio" id="option1" th:field="*{prenotazione.valigiaCabina}" value="1" required="required">
 		         <label for="option1">Valigia in cabina</label>
 		         
-		         <input type="radio" id="option2" name="option1" value="1" required="required">
+		         <input type="radio" id="option2" th:field="*{prenotazione.valigiaCabina}" value="0" required="required">
 		         <label for="option2">Valigia in stiva</label>
 	         </div>
          </div>
