@@ -77,6 +77,8 @@ public class ClienteController {
     		
     		Cliente input = new Cliente();
     		input.setCodiceFiscale(clienteResult.getCodiceFiscale());
+    		input.setNome(clienteResult.getNome());
+    		input.setCognome(clienteResult.getCognome());
     		clienteRepo.save(input);
     	}
     	
@@ -110,6 +112,7 @@ public class ClienteController {
     	input.setCodiceFiscale(clienteResult.getCodiceFiscale());
     	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
     	input.setNumPosto(postiValigieCabinaOccupati + 1);
+    	input.setValigiaCabina(prenotazioneResult.getValigiaCabina());
     	prenotazioneRepo.save(input);
     	
     	model.addAttribute("esito", true);
