@@ -15,8 +15,6 @@ public class PrenotazioneDTO {
     
     private List compagniaAmici;
     
-    private boolean valigiaCabina;
-    
     public PrenotazioneDTO(){
     	cliente = new Cliente();
     	prenotazione = new Prenotazione();
@@ -54,14 +52,6 @@ public class PrenotazioneDTO {
 
 	public void setCodiceVolo(Long codiceVolo) {
 		this.codiceVolo = codiceVolo;
-	}
-
-	public boolean getValigiaCabina() {
-		return valigiaCabina;
-	}
-
-	public void setValigiaCabina(boolean valigiaCabina) {
-		this.valigiaCabina = valigiaCabina;
 	}
         
 }
