@@ -49,17 +49,8 @@ public class ClienteController {
     	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
     	
     	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
-    	
-    	Iterator t = result.iterator(); 
-    	while(t.hasNext()) {
-		    Volo v = (Volo) t.next();
-		    Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
-		    List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(v.getCodiceVolo());
-  			v.setPostiDisp(a.get_num_bagagli_cabina() - p.size());
-  			if(v.getPostiDisp() == 0) {
-  				t.remove();
-  			}
-		}
+		
+    	getVoli(result);
     	
     	if(result.size() == 0) {
     		model.addAttribute("status", "Nessun volo disponibile");
@@ -71,6 +62,19 @@ public class ClienteController {
     	
     	return "/cliente/effettuaPrenotazione";
     }
+
+	private void getVoli(List<Volo> result) {
+		Iterator t = result.iterator(); 
+    	while(t.hasNext()) {
+		    Volo v = (Volo) t.next();
+		    Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
+		    List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(v.getCodiceVolo());
+  			v.setPostiDisp(a.get_num_bagagli_cabina() - p.size());
+  			if(v.getPostiDisp() == 0) {
+  				t.remove();
+  			}
+		}
+	}
     
     @PostMapping("/cliente/effettuaPrenotazione")
     public String postEffettuaPrenotazione(@ModelAttribute PrenotazioneDTO prenotazioneDTO, Model model) {
@@ -78,8 +82,14 @@ public class ClienteController {
     	Cliente clienteResult = prenotazioneDTO.getCliente();
     	Prenotazione prenotazioneResult = prenotazioneDTO.getPrenotazione();
     	Volo v = voloRepo.findByCodiceVolo(prenotazioneResult.getCodiceVolo());
-    	Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
     	
+    	if(v == null) {
+        	model.addAttribute("status", "Il volo non esiste");
+    		return "/cliente/error";
+    	}
+
+    	Aereo a = aereoRepo.findByCodiceAereo(v.getCodiceAereo());
+        	
     	Optional<Cliente> cliente = Optional.ofNullable(clienteRepo.findById(clienteResult.getCodiceFiscale()).orElse(null));
     	
     	//se il cliente non è ancora presente nel db
@@ -162,8 +172,6 @@ public class ClienteController {
     		model.addAttribute("status", "Non hai effettuato prenotazioni");
     		return "/cliente/error";
     	}
-
-
     }
     
     @PostMapping("controlloStorico")

@@ -5,8 +5,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Aereo {
-    
-    public @Id Long codiceAereo;
+
+	public @Id Long codiceAereo;
     public int num_bagagli_cabina;
 
     public Aereo() {

@@ -20,7 +20,21 @@ import java.util.Date;
 @Entity
 public class Volo {
 
-    private @Id @GeneratedValue Long codiceVolo;
+    public Volo(Long codiceVolo, String aeroportoPartenza, String aeroportoArrivo, Date orario, Long codiceAereo,
+			double prezzo, int postiDisp) {
+		super();
+		this.codiceVolo = codiceVolo;
+		this.aeroportoPartenza = aeroportoPartenza;
+		this.aeroportoArrivo = aeroportoArrivo;
+		this.orario = orario;
+		this.codiceAereo = codiceAereo;
+		this.prezzo = prezzo;
+		this.postiDisp = postiDisp;
+	}
+    
+    public Volo() {}
+
+	private @Id @GeneratedValue Long codiceVolo;
     private String aeroportoPartenza;
     private String aeroportoArrivo;
     
@@ -45,7 +59,6 @@ public class Volo {
     public Date getOrario() {
         return orario;
     }
-    
 
     public Long getCodiceAereo() {
         return codiceAereo;
@@ -82,5 +95,9 @@ public class Volo {
 
 	public void setPostiDisp(int postiDisp) {
 		this.postiDisp = postiDisp;
+	}
+
+	public void setCodiceVolo(Long codiceVolo) {
+		this.codiceVolo = codiceVolo;
 	}
 }

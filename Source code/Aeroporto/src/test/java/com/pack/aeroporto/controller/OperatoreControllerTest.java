@@ -17,6 +17,5 @@ public class OperatoreControllerTest {
 		OperatoreController operatoreController = new OperatoreController(operatoreRepo, aereoRepo, voloRepo);
 		Operatore op = new Operatore();
 		
-		assertEquals(true, true);
 	}
 }
