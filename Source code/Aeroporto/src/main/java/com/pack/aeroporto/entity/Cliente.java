@@ -12,7 +12,14 @@ public class Cliente {
     
     public Cliente(){}
 
-    public String getNome() {
+    public Cliente(String codiceFiscale, String nome, String cognome) {
+		super();
+		this.codiceFiscale = codiceFiscale;
+		this.nome = nome;
+		this.cognome = cognome;
+	}
+
+	public String getNome() {
         return nome;
     }
 

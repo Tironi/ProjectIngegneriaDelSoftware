@@ -172,15 +172,6 @@ public class ClienteController {
     		model.addAttribute("status", "Non hai effettuato prenotazioni");
     		return "/cliente/error";
     	}
-    }
-    
-    @PostMapping("controlloStorico")
-    public String controlloStorico(@ModelAttribute Prenotazione prenotazione, Model model) {
-    	model.addAttribute(new PrenotazioneDTO());
-    	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
-    	    	
-    	return "/cliente/controlloStorico";
-    }
-    
+    }    
     
 }

@@ -16,6 +16,16 @@ public class Prenotazione {
 
     private int numPosto;
 
+    public Prenotazione() {}
+    
+    public Prenotazione(String codiceFiscale, Long codiceVolo, boolean valigiaCabina, int numPosto) {
+		super();
+		this.codiceFiscale = codiceFiscale;
+		this.codiceVolo = codiceVolo;
+		this.valigiaCabina = valigiaCabina;
+		this.numPosto = numPosto;
+	}
+    
     public String getCodiceFiscale() {
         return codiceFiscale;
     }
