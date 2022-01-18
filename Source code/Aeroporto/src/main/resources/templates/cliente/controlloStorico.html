@@ -2,8 +2,17 @@
 <html lang="en"
   xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Controllo storico</title>
+	<meta charset="ISO-8859-1">
+	<title>Controllo storico</title>
+	
+	
+		<style>
+			table, th, td {
+			  border: 1px solid black;
+			}
+		</style>
+		
+	
 </head>
 <body>
 	<div th:if="${cerca}"> 
@@ -22,6 +31,7 @@
 			        <tr>
 			            <th> Codice Fiscale</th>
 			            <th> Codice Volo </th>
+			            <th> Numero del posto assegnato </th>
 			            <th> Nome </th>
 			            <th> Cognome </th>
 			        </tr>
@@ -30,6 +40,7 @@
 			        <tr th:each="prenotazioni : ${prenotazioneDTO}">
 			            <td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
 			            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
+			            <td><span th:text="${prenotazioni.prenotazione.getNumPosto()}">  </span></td>
 			            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
 			            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
 			        </tr>
@@ -45,7 +56,7 @@
 			</td>
             
 			<td>
-				<form th:action="@{/cliente}" >
+				<form th:action="@{/}" >
 				   <input type="submit" value="Menu">
 			 	</form>
 			</td>

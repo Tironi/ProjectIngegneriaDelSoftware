@@ -24,7 +24,7 @@ public class OperatoreController {
     	this.voloRepo = voloRepo;
     }
     
-    @GetMapping("/operatore/login")   //nella pagina localhost:8080 verrà eseguito index()
+    @GetMapping("/login")   //nella pagina localhost:8080 verrà eseguito index()
     public String login(Model model) {
     	model.addAttribute("op", new Operatore());
     	return "/operatore/login";
@@ -45,7 +45,7 @@ public class OperatoreController {
     	}
     }
     
-    @GetMapping("/operatore/inserisciVolo")
+    @GetMapping("/inserisciVolo")
     public String getInserisciVolo(Model model) {
     	
     	model.addAttribute("volo", new Volo());   
@@ -60,7 +60,7 @@ public class OperatoreController {
     	return "/operatore/menu";
     }
     
-    @GetMapping("/operatore/visualizzaVoli")
+    @GetMapping("/visualizzaVoli")
     public String getVisualizzaVolo(Model model) {
     	
     	model.addAttribute("voli", voloRepo.findAll());

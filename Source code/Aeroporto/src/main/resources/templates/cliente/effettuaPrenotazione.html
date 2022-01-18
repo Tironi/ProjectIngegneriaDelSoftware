@@ -11,46 +11,27 @@
 	<form th:action="@{/cliente/effettuaPrenotazione}" th:object="${prenotazioneDTO}" method="post">
 		<p>	
 			Scegli un volo :
-			<select th:field="*{prenotazione.codiceVolo}">
-				<option value="0">Seleziona volo</option>
-    			<option th:each="volo : ${voli}" th:value="${volo.codice}" th:text="${volo.codice}"></option>
+			<select th:field="*{prenotazione.codiceVolo}" required="required">
+    			<option th:each="volo : ${voli}" th:value="${volo.codiceVolo}" th:text="${volo.codiceVolo}"></option>
 			</select>
-<<<<<<< Updated upstream
 		</p>
 		
-		<p>Posti rimanenti: 10</p>
-=======
-			
-			<table>
-			    <tbody>
-			        <tr th:each="volo : ${voli}">
-			            <td>
-							<div>
-								Aeroporto di partenza: <span th:text="${volo.aeroportoPartenza}">  </span>
-							</div>
-							<div>
-								Aeroporto di arrivo: <span th:text="${volo.aeroportoArrivo}">  </span>
-							</div>
-							<div>
-								Prezzo: <span th:text	="${volo.prezzo}">  </span>
-							</div>
-							<div>
-								Posti disponibili: 2 <span th:text	="${volo.prezzo}">  </span>
-							</div>
-	    					<input type="submit" value="Seleziona">
-							
-						</td>
-			        </tr>
-			    </tbody>
-		    </table>
-		</p>		
->>>>>>> Stashed changes
 		<label for="fcodiceFiscale">Codice fiscale: </label>
-	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
+	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale" required="required">
 		<label for="fcodiceFiscale">Nome: </label>
-	    <input type="text" th:field="*{cliente.nome}" id="nome" name="nome">
+	    <input type="text" th:field="*{cliente.nome}" id="nome" name="nome" required="required">
 		<label for="fcodiceFiscale">Cognome: </label>
-	    <input type="text" th:field="*{cliente.cognome}" id="cognome" name="cognome">
+	    <input type="text" th:field="*{cliente.cognome}" id="cognome" name="cognome" required="required">
+	    
+	     <div class="form-group">
+	         <div>
+		         <input type="radio" id="option1" th:field="*{prenotazione.valigiaCabina}" value="1" required="required">
+		         <label for="option1">Valigia in cabina</label>
+		         
+		         <input type="radio" id="option2" th:field="*{prenotazione.valigiaCabina}" value="0" required="required">
+		         <label for="option2">Valigia in stiva</label>
+	         </div>
+         </div>
 	    
 	    <input type="submit" value="Prenota">
     </form>

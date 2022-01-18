@@ -4,6 +4,13 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Inserimento volo</title>
+		
+		<style>
+			table, th, td {
+			  border: 1px solid black;
+			}
+		</style>
+		
 	</head>
 <body>
 
@@ -16,7 +23,7 @@
     	</thead>
 	    <tbody>
 	        <tr th:each="aereo : ${aerei}">
-	            <td><span th:text="${aereo.getCodice()}">  </span></td>
+	            <td><span th:text="${aereo.getCodiceAereo()}">  </span></td>
 	            <td><span th:text="${aereo.get_num_bagagli_cabina()}">  </span></td>
 	        </tr>
 	    </tbody>
@@ -29,7 +36,7 @@
 	  <label for="codiceAereo">Codice aereo:</label>
 
 		<select th:field="*{codiceAereo}">
-		    <option th:each="aereo : ${aerei}" th:value="${aereo.getCodice()}" th:text="${aereo.getCodice()}"></option>
+		    <option th:each="aereo : ${aerei}" th:value="${aereo.getCodiceAereo()}" th:text="${aereo.getCodiceAereo()}"></option>
 		</select><br><br>
 	  
 	  
@@ -63,7 +70,7 @@
 			</td>
             
 			<td>
-				<form th:action="@{/operatore/visualizzaVoli}" >
+				<form th:action="@{/}" >
 				   <input type="submit" value="Visualizza voli">
 			 	</form>
 			</td>
