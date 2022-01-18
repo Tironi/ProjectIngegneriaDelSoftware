@@ -1,31 +1,36 @@
 package com.pack.aeroporto.entity;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
-@Entity
+@Entity @IdClass(PrenotazioneKey.class)
 public class Prenotazione {
 
-<<<<<<< Updated upstream
-	private @Id String codiceFiscale;
-    //private Posto posto;
-    private String codiceVolo;
-=======
 	@Id
 	private String codiceFiscale;
 	@Id
-    private boolean valigiaCabina; 
+	private Long codiceVolo;
 	
-    private Long codiceVolo;
->>>>>>> Stashed changes
+	private boolean valigiaCabina;   // 0 in cabina, 1 in stiva
 
+    private int numPosto;
+
+    public Prenotazione() {}
+    
+    public Prenotazione(String codiceFiscale, Long codiceVolo, boolean valigiaCabina, int numPosto) {
+		super();
+		this.codiceFiscale = codiceFiscale;
+		this.codiceVolo = codiceVolo;
+		this.valigiaCabina = valigiaCabina;
+		this.numPosto = numPosto;
+	}
+    
     public String getCodiceFiscale() {
         return codiceFiscale;
     }
 
-    public String getCodiceVolo() {
+    public Long getCodiceVolo() {
         return codiceVolo;
     }
 
@@ -33,11 +38,9 @@ public class Prenotazione {
         this.codiceFiscale = codiceFiscale;
     }
 
-    public void setCodiceVolo(String codiceVolo) {
+    public void setCodiceVolo(Long codiceVolo) {
         this.codiceVolo = codiceVolo;
     }
-<<<<<<< Updated upstream
-=======
 
 	public boolean isValigiaCabina() {
 		return valigiaCabina;
@@ -45,6 +48,10 @@ public class Prenotazione {
 
 	public void setValigiaCabina(boolean valigiaCabina) {
 		this.valigiaCabina = valigiaCabina;
+	}
+	
+	public boolean getValigiaCabina() {
+		return valigiaCabina;
 	}
 
 	public int getNumPosto() {
@@ -54,5 +61,4 @@ public class Prenotazione {
 	public void setNumPosto(int numPosto) {
 		this.numPosto = numPosto;
 	}
->>>>>>> Stashed changes
 }

@@ -15,36 +15,9 @@
 				<option value="0">Seleziona volo</option>
     			<option th:each="volo : ${voli}" th:value="${volo.codice}" th:text="${volo.codice}"></option>
 			</select>
-<<<<<<< Updated upstream
 		</p>
 		
 		<p>Posti rimanenti: 10</p>
-=======
-			
-			<table>
-			    <tbody>
-			        <tr th:each="volo : ${voli}">
-			            <td>
-							<div>
-								Aeroporto di partenza: <span th:text="${volo.aeroportoPartenza}">  </span>
-							</div>
-							<div>
-								Aeroporto di arrivo: <span th:text="${volo.aeroportoArrivo}">  </span>
-							</div>
-							<div>
-								Prezzo: <span th:text	="${volo.prezzo}">  </span>
-							</div>
-							<div>
-								Posti disponibili: 2 <span th:text	="${volo.prezzo}">  </span>
-							</div>
-	    					<input type="submit" value="Seleziona">
-							
-						</td>
-			        </tr>
-			    </tbody>
-		    </table>
-		</p>		
->>>>>>> Stashed changes
 		<label for="fcodiceFiscale">Codice fiscale: </label>
 	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
 		<label for="fcodiceFiscale">Nome: </label>

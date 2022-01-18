@@ -7,13 +7,14 @@
 </head>
 <body>
 	<div th:if="${esito}">
-	   <div>La prenotazione e' andata a buon fine</div>
+	   <p th:text="${status}" />
 	</div>
 
 	<div th:unless="${esito}">
-	   <div>Errore nella prenotazione</div>
+	   	<h1>ERRORE</h1>
+	    <p th:text="${status}" />
 	</div>
 	
-	<a th:href="@{../cliente}">Torna al menu</a>	
+	<a th:href="@{/}">Torna al menu</a>	
 </body>
 </html>
