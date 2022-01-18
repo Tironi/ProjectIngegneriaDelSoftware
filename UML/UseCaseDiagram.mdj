@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model",
+			"name": "UseCase diagram",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
@@ -928,7 +928,7 @@
 									"font": "Arial;13;0",
 									"left": 717.5,
 									"top": 171,
-									"width": 103.18359375,
+									"width": 102,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+JrME8n9UxCo="
@@ -1950,7 +1950,7 @@
 									"font": "Arial;13;0",
 									"left": 505.5,
 									"top": 516.5,
-									"width": 199.744140625,
+									"width": 199,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+JsXZY4NPQxA="
@@ -2404,7 +2404,7 @@
 									"font": "Arial;13;0",
 									"left": 476,
 									"top": 132.5,
-									"width": 96.708984375,
+									"width": 96,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+JsjjEoPkqAw="
