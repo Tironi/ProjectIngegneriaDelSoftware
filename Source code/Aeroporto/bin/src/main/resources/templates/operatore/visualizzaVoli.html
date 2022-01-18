@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Elenco voli</title>
+	</head>
+<body>
+   <table>
+	   <thead>
+	        <tr>
+	            <th> Codice </th>
+	            <th> Aeroporto Partenza </th>
+	            <th> Aeroporto Arrivo </th>
+	            <th> Orario </th>
+	            <th> Codice Aereo </th>
+	            <th> Prezzo </th>
+	        </tr>
+    	</thead>
+	    <tbody>
+	        <tr th:each="volo : ${voli}">
+	            <td><span th:text="${volo.getCodice()}">  </span></td>
+	            <td><span th:text="${volo.getAeroportoPartenza()}">  </span></td>
+	            <td><span th:text="${volo.getAeroportoArrivo()}">  </span></td>
+	            <td><span th:text="${volo.getOrario()}">  </span></td>
+	            <td><span th:text	="${volo.getPrezzo()}">  </span></td>
+	        </tr>
+	    </tbody>
+    </table>
+    
+    <br>
+    
+    <form th:action="@{/operatore/inserisciVolo}">
+	   <input type="submit" value="InserisciVolo">
+ 	</form>
+    
+</body>
+</html>

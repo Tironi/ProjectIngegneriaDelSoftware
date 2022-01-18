@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model",
+			"name": "Activity diagram",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
@@ -26,7 +26,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Activity1",
+					"name": "Utente",
 					"ownedElements": [
 						{
 							"_type": "UMLActivityDiagram",

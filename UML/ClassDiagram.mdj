@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model1",
+			"name": "Class diagram",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",

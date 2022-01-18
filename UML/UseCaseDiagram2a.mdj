@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model",
+			"name": "UseCase diagram",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
@@ -928,7 +928,7 @@
 									"font": "Arial;13;0",
 									"left": 717.5,
 									"top": 171,
-									"width": 103.18359375,
+									"width": 102,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+JrME8n9UxCo="
@@ -1958,7 +1958,7 @@
 									"font": "Arial;13;0",
 									"left": 505.5,
 									"top": 516.5,
-									"width": 199.744140625,
+									"width": 199,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+JsXZY4NPQxA="
@@ -2412,7 +2412,7 @@
 									"font": "Arial;13;0",
 									"left": 476,
 									"top": 132.5,
-									"width": 96.708984375,
+									"width": 96,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+JsjjEoPkqAw="
@@ -2869,7 +2869,7 @@
 									"font": "Arial;13;0",
 									"left": 821.5,
 									"top": 308.5,
-									"width": 141.49169921875,
+									"width": 141,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+aflj10h2G0Q="
@@ -3058,7 +3058,7 @@
 									"font": "Arial;13;0",
 									"left": 844.5,
 									"top": 404.5,
-									"width": 97.41357421875,
+									"width": 96,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+afmmsUjjKWk="
@@ -3434,7 +3434,7 @@
 									"font": "Arial;13;0",
 									"left": 604,
 									"top": 620.5,
-									"width": 95.24267578125,
+									"width": 94,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+afoNw0oD0U4="
@@ -3624,7 +3624,7 @@
 									"font": "Arial;13;0",
 									"left": 648,
 									"top": 724.5,
-									"width": 153.01904296875,
+									"width": 152,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+afozUEpw9rU="
@@ -4088,7 +4088,7 @@
 									"font": "Arial;13;0",
 									"left": 762.5,
 									"top": 468.5,
-									"width": 127.72998046875,
+									"width": 127,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF+ahPtnU0HJ4g="
