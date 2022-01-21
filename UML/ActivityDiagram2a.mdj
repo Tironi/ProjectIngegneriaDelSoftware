@@ -12,15 +12,6 @@
 			"name": "ActivityDiagram",
 			"ownedElements": [
 				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				},
-				{
 					"_type": "UMLActivity",
 					"_id": "AAAAAAF+K1C1hgU5dMQ=",
 					"_parent": {
@@ -2626,9 +2617,9 @@
 													"font": "Arial;13;0",
 													"left": -80,
 													"top": 16,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -3340,9 +3331,9 @@
 													"font": "Arial;13;0",
 													"left": -96,
 													"top": -48,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -3758,9 +3749,9 @@
 													"font": "Arial;13;0",
 													"left": 512,
 													"top": 512,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -6899,9 +6890,9 @@
 													"font": "Arial;13;0",
 													"left": -32,
 													"top": -112,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -7298,9 +7289,9 @@
 													"font": "Arial;13;0",
 													"left": -128,
 													"top": 16,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -7807,9 +7798,9 @@
 													},
 													"visible": false,
 													"font": "Arial;13;0",
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -8003,9 +7994,9 @@
 													"font": "Arial;13;0",
 													"left": -32,
 													"top": -16,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -8402,9 +8393,9 @@
 													"font": "Arial;13;0",
 													"left": -112,
 													"top": -16,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -10041,9 +10032,9 @@
 													},
 													"visible": false,
 													"font": "Arial;13;0",
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",
@@ -10346,9 +10337,9 @@
 													"visible": false,
 													"font": "Arial;13;0",
 													"left": -320,
-													"width": 86.6708984375,
+													"width": 96.8017578125,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Operatore)"
 												},
 												{
 													"_type": "LabelView",

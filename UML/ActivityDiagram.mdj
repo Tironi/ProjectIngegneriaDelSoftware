@@ -12,15 +12,6 @@
 			"name": "Activity diagram",
 			"ownedElements": [
 				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAFF+qBtyKM79qY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "Main",
-					"defaultDiagram": true
-				},
-				{
 					"_type": "UMLActivity",
 					"_id": "AAAAAAF+K1C1hgU5dMQ=",
 					"_parent": {
@@ -334,7 +325,7 @@
 													"font": "Arial;13;0",
 													"width": 86.6708984375,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Utente)"
 												},
 												{
 													"_type": "LabelView",
@@ -3188,7 +3179,7 @@
 													"top": 16,
 													"width": 86.6708984375,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Utente)"
 												},
 												{
 													"_type": "LabelView",
@@ -3902,7 +3893,7 @@
 													"top": -48,
 													"width": 86.6708984375,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Utente)"
 												},
 												{
 													"_type": "LabelView",
@@ -5541,7 +5532,7 @@
 													"font": "Arial;13;0",
 													"width": 86.6708984375,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Utente)"
 												},
 												{
 													"_type": "LabelView",
@@ -5846,7 +5837,7 @@
 													"left": -320,
 													"width": 86.6708984375,
 													"height": 13,
-													"text": "(from Activity1)"
+													"text": "(from Utente)"
 												},
 												{
 													"_type": "LabelView",
