@@ -30,7 +30,7 @@ public class OperatoreController {
     	return "/operatore/login";
     }
     
-    @PostMapping("/operatore/login")
+    @PostMapping("operatore/login")
     public String faiLogin(@ModelAttribute Operatore op, Model model) {
     	model.addAttribute("op", op);
     	
@@ -38,7 +38,7 @@ public class OperatoreController {
     	
     	if(result != null) {
         	model.addAttribute("op", result);
-            return "operatore/menu";
+            return "/operatore/menu";
     	}else {
         	model.addAttribute("Errore", "Non è stato possibile trovare l'operatore");
             return "error";

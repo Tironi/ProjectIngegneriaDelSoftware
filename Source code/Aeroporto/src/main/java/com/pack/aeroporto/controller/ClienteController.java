@@ -176,7 +176,7 @@ public class ClienteController {
     	}
     }    
     
-    @GetMapping("/loginCliente")   //nella pagina localhost:8080 verrà eseguito index()
+    @GetMapping("/loginCliente")  
     public String login(Model model) {
     	model.addAttribute("cliente", new Cliente());
     	return "/cliente/loginCliente";
@@ -184,16 +184,39 @@ public class ClienteController {
     
     @PostMapping("cliente/loginCliente")
     public String faiLogin(@ModelAttribute Cliente cliente, Model model) {
-    	model.addAttribute("cliente", cliente);
     	
     	Cliente result = clienteRepo.findByEmail(cliente.getEmail());
     	
     	if(result != null) {
-        	model.addAttribute("cliente", result);
-            return "cliente/menu";
+            return "cliente/effettuaPrenotazione";
+            //viene richiamato il template effettuaPrenotazione che si aspetta un oggetto PrenotazioneDTO
+            //sistemare questa view in modo da passare direttamente un oggetto DTO senza dover
+            //reinserire CF, nome, ....
     	}else {
-        	model.addAttribute("Errore", "Non è stato possibile trovare il cliente");
-            return "error";
+        	model.addAttribute("Errore", "Non è stato possibile trovare il cliente. Registrati");
+            return "cliente/registrazione";
+    	}
+    }
+    
+    @GetMapping("/registrazione")
+    public String registrazione(Model model) {
+    	model.addAttribute("cliente", new Cliente());
+    	return "/cliente/registrazione";
+    }
+    
+    @PostMapping("/cliente/registrazione")
+    public String faiRegistrazione(@ModelAttribute Cliente cliente, Model model) {
+    	model.addAttribute("cliente", cliente);
+    	
+    	Cliente result = clienteRepo.save(cliente);
+    	
+    	if(result != null) {
+    		model.addAttribute("esito", true);
+        	model.addAttribute("status", "Registrazione andata a buon fine");
+            return "cliente/esitoRegistrazione";
+    	}else {
+        	model.addAttribute("Errore", "Riprova a registrarti");
+            return "cliente/esitoRegistrazione";
     	}
     }
     
