@@ -176,13 +176,13 @@ public class ClienteController {
     	}
     }    
     
-    @GetMapping("/login")   //nella pagina localhost:8080 verrà eseguito index()
+    @GetMapping("/loginCliente")   //nella pagina localhost:8080 verrà eseguito index()
     public String login(Model model) {
     	model.addAttribute("cliente", new Cliente());
-    	return "/cliente/login";
+    	return "/cliente/loginCliente";
     }
     
-    @PostMapping("cliente/login")
+    @PostMapping("cliente/loginCliente")
     public String faiLogin(@ModelAttribute Cliente cliente, Model model) {
     	model.addAttribute("cliente", cliente);
     	

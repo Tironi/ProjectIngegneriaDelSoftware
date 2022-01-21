@@ -1,9 +1,11 @@
 package com.pack.aeroporto.entity;
 
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public abstract class Persona {
-	private @Id String codiceFiscale;
+	public @Id String codiceFiscale;
 	private String nome;
     private String cognome;
     
