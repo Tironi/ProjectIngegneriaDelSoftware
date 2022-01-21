@@ -6,19 +6,31 @@ import javax.persistence.Id;
 @Entity
 public class Operatore extends Persona{
 
-	private @Id String email;
-    private String nome;
-    private String cognome;
+	private String email;
     private String PSW;
     
     public Operatore() {
         super();
 	}
     
-	public Operatore(String nome, String cognome, String email, String PSW) {
-        this.nome = nome;
-    	this.cognome = cognome;
-    	this.email = email;
-    	this.PSW = PSW;
+	public Operatore(String email, String PSW) {
+    	this.setEmail(email);
+    	this.setPSW(PSW);
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPSW() {
+		return PSW;
+	}
+
+	public void setPSW(String pSW) {
+		PSW = pSW;
 	}
 }

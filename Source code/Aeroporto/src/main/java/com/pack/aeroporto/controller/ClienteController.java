@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.google.common.collect.Lists;
 import com.pack.aeroporto.entity.Aereo;
 import com.pack.aeroporto.entity.Cliente;
+import com.pack.aeroporto.entity.Operatore;
 import com.pack.aeroporto.entity.Prenotazione;
 import com.pack.aeroporto.entity.Volo;
 import com.pack.aeroporto.object.PrenotazioneDTO;
@@ -174,5 +175,26 @@ public class ClienteController {
     		return "/cliente/error";
     	}
     }    
+    
+    @GetMapping("/login")   //nella pagina localhost:8080 verrà eseguito index()
+    public String login(Model model) {
+    	model.addAttribute("cliente", new Cliente());
+    	return "/cliente/login";
+    }
+    
+    @PostMapping("cliente/login")
+    public String faiLogin(@ModelAttribute Cliente cliente, Model model) {
+    	model.addAttribute("cliente", cliente);
+    	
+    	Cliente result = clienteRepo.findByEmail(cliente.getEmail());
+    	
+    	if(result != null) {
+        	model.addAttribute("cliente", result);
+            return "cliente/menu";
+    	}else {
+        	model.addAttribute("Errore", "Non è stato possibile trovare il cliente");
+            return "error";
+    	}
+    }
     
 }
