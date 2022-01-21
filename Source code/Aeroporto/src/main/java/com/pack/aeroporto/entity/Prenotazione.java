@@ -10,11 +10,13 @@ public class Prenotazione {
 	@Id
 	private String codiceFiscale;
 	@Id
-	private Long codiceVolo;
-	
+	private Long codiceVolo;	
 	private boolean valigiaCabina;   // 0 in cabina, 1 in stiva
-
     private int numPosto;
+    private double pesoBagaglio;
+    private boolean bPriorit;
+    private boolean pasto;
+    
 
     public Prenotazione() {}
     
@@ -60,5 +62,33 @@ public class Prenotazione {
 
 	public void setNumPosto(int numPosto) {
 		this.numPosto = numPosto;
+	}
+	
+	public String getCodicePrenotazione() {
+		return (this.codiceFiscale + this.codiceVolo.toString());
+	}
+
+	public double getPesoBagaglio() {
+		return pesoBagaglio;
+	}
+
+	public void setPesoBagaglio(double pesoBagaglio) {
+		this.pesoBagaglio = pesoBagaglio;
+	}
+
+	public boolean isbPriorit() {
+		return bPriorit;
+	}
+
+	public void setbPriorit(boolean bPriorit) {
+		this.bPriorit = bPriorit;
+	}
+
+	public boolean isPasto() {
+		return pasto;
+	}
+
+	public void setPasto(boolean pasto) {
+		this.pasto = pasto;
 	}
 }
