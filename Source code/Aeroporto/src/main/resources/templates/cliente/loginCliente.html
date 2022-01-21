@@ -5,7 +5,7 @@
   	<title>Login</title>
   </head>
  <body>
-  	<form th:action="@{/Cliente/logiCliente}" th:object="${loginCliente}" method="post">
+  	<form th:action="@{/cliente/loginCliente}" th:object="${cliente}" method="post">
   	
 	   <label for="fname">Email:</label><br>
 	   <input type="text" th:field="*{email}" id="email" name="email"><br>
