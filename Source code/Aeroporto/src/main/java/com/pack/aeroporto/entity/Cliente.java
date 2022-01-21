@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 @AttributeOverrides({
     @AttributeOverride(name = "codiceFiscale", column =
-            @Column(name = "CF"))})
+            @Column(name = "codiceFiscale"))})
 public class Cliente extends Persona {
 	
 	private String email;

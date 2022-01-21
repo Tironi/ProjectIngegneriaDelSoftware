@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registrazione Utente</title>
+</head>
+<body>
+
+	<form th:action="@{/cliente/registrazione}" th:object="${cliente}" method="post">
+  	
+	   <label for="codiceFiscale">Codice Fiscale:</label><br>
+	   <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale"><br>
+	   
+	   <label for="nome">Nome:</label><br>
+	   <input type="text" th:field="*{nome}" id="nome" name="nome"><br><br>
+	   
+	   <label for="cognome">Cognome:</label><br>
+	   <input type="text" th:field="*{cognome}" id="cognome" name="cognome"><br><br>
+	   
+	   <label for="fname">Email:</label><br>
+	   <input type="text" th:field="*{email}" id="email" name="email"><br>
+	   
+	   <label for="lname">Password:</label><br>
+	   <input type="text" th:field="*{PSW}" id="PSW" name="PSW"><br><br>
+	   
+	   <input type="submit" value="Submit">
+	   	   
+ 	</form>
+
+</body>
+</html>
