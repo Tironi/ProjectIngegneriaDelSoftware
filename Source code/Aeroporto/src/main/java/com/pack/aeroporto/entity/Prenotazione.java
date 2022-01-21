@@ -14,9 +14,8 @@ public class Prenotazione {
 	private boolean valigiaCabina;   // 0 in cabina, 1 in stiva
     private int numPosto;
     private double pesoBagaglio;
-    private boolean bPriorit;
+    private boolean bigliettoPrioritario;
     private boolean pasto;
-    
 
     public Prenotazione() {}
     
@@ -76,12 +75,12 @@ public class Prenotazione {
 		this.pesoBagaglio = pesoBagaglio;
 	}
 
-	public boolean isbPriorit() {
-		return bPriorit;
+	public boolean isBigliettoPrioritario() {
+		return bigliettoPrioritario;
 	}
 
-	public void setbPriorit(boolean bPriorit) {
-		this.bPriorit = bPriorit;
+	public void setBigliettoPrioritario(boolean bPriorit) {
+		this.bigliettoPrioritario = bPriorit;
 	}
 
 	public boolean isPasto() {

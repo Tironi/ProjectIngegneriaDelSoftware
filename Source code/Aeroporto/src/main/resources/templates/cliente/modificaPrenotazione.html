@@ -3,27 +3,12 @@
   xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Effettua prenotazione</title>
+<title>Modifica prenotazione</title>
 </head>
 <body>
-	<h1>Effettua prenotazione</h1>
+	<h1>Modifica prenotazione</h1>
 	
-	<form th:action="@{/cliente/effettuaPrenotazione}" th:object="${prenotazioneDTO}" method="post">
-		<p>	
-			Scegli un volo :
-			<select th:field="*{prenotazione.codiceVolo}" required="required">
-    			<option th:each="volo : ${voli}" th:value="${volo.codiceVolo}" th:text="${volo.codiceVolo}"></option>
-			</select>
-		</p>
-		
-		<label for="fcodiceFiscale">Codice fiscale: </label>
-	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale" required="required">
-		<label for="fcodiceFiscale">Nome: </label>
-	    <input type="text" th:field="*{cliente.nome}" id="nome" name="nome" required="required">
-		<label for="fcodiceFiscale">Cognome: </label>
-	    <input type="text" th:field="*{cliente.cognome}" id="cognome" name="cognome" required="required">
-	    <br>
-	    <br>
+	<form th:action="@{/cliente/modificaPrenotazione}" th:object="${prenotazioneDTO}" method="post">
 	     <div class="form-group">
 	         <div>
 		         <input type="radio" id="option1" th:field="*{prenotazione.valigiaCabina}" value="1" required="required">

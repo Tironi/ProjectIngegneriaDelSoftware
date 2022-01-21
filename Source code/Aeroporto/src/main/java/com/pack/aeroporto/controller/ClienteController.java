@@ -38,7 +38,6 @@ public class ClienteController {
 		this.aereoRepo = aereoRepository;
 	}
 	
-	
     @GetMapping("/cliente")
     public String index(Model model) {
     	
@@ -113,6 +112,8 @@ public class ClienteController {
     	input.setCodiceFiscale(clienteResult.getCodiceFiscale());
     	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
     	input.setNumPosto(postiValigieCabinaOccupati + 1);
+    	input.setPasto(prenotazioneResult.isPasto());
+    	input.setBigliettoPrioritario(prenotazioneResult.isBigliettoPrioritario());
     	input.setValigiaCabina(prenotazioneResult.isValigiaCabina());
 
     	prenotazioneRepo.save(input);
@@ -121,6 +122,41 @@ public class ClienteController {
     	model.addAttribute("status", "Prenotazione andata a buon fine");
     	
     	return "/cliente/esitoPrenotazione";
+    }
+    
+    @GetMapping("modificaPrenotazione")
+    public String getModificaPrenotazione(Model model) {
+    	
+    	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
+    	
+    	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
+		
+    	getVoli(result);
+    	
+    	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
+    	model.addAttribute("voli", result);
+    	
+    	return "/cliente/effettuaPrenotazione";
+    }
+    
+    @PostMapping("modificaPrenotazione")
+    public String postModificaPrenotazione(Model model) {
+    	
+    	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
+    	
+    	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
+		
+    	getVoli(result);
+    	
+    	if(result.size() == 0) {
+    		model.addAttribute("status", "Nessun volo disponibile");
+    		return "/cliente/error";
+    	}
+    	
+    	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
+    	model.addAttribute("voli", result);
+    	
+    	return "/cliente/effettuaPrenotazione";
     }
     
     private int numeroPostiDisponibili(Prenotazione prenotazioneResult) {

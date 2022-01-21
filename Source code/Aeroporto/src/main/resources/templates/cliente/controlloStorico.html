@@ -11,8 +11,6 @@
 			  border: 1px solid black;
 			}
 		</style>
-		
-	
 </head>
 <body>
 	<div th:if="${cerca}"> 
@@ -38,11 +36,14 @@
 		    	</thead>
 			    <tbody>
 			        <tr th:each="prenotazioni : ${prenotazioneDTO}">
-			            <td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
-			            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
-			            <td><span th:text="${prenotazioni.prenotazione.getNumPosto()}">  </span></td>
-			            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
-			            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
+			        	<form th:action="@{/controlloStorico}">
+					   		<td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
+				            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
+				            <td><span th:text="${prenotazioni.prenotazione.getNumPosto()}">  </span></td>
+				            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
+				            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
+				            <td><input type="submit" value="Modifica volo"></td>
+				 		</form>	
 			        </tr>
 			    </tbody>
 		    </table>

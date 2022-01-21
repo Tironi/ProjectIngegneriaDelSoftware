@@ -12,7 +12,6 @@ import javax.persistence.Id;
             @Column(name = "CF"))})
 public class Cliente extends Persona {
 	
-	
 	private String email;
 	private String PSW;
 	
