@@ -45,9 +45,12 @@ public class ClienteController {
     }
     
     @GetMapping("effettuaPrenotazione")
-    public String effettuaPrenotazione(Model model) {
+    public String effettuaPrenotazione(Model model, Cliente cliente) {
     	
     	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
+    	prenotazioneDTO.cliente.setCodiceFiscale(cliente.getCodiceFiscale());
+    	prenotazioneDTO.cliente.setNome(cliente.getNome());
+    	prenotazioneDTO.cliente.setCognome(cliente.getCognome());
     	
     	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
 		
@@ -221,16 +224,18 @@ public class ClienteController {
     @PostMapping("cliente/loginCliente")
     public String faiLogin(@ModelAttribute Cliente cliente, Model model) {
     	
-    	Cliente result = clienteRepo.findByEmail(cliente.getEmail());
+    	Cliente emailRes = clienteRepo.findByEmail(cliente.getEmail());
+    	Cliente pswRes = clienteRepo.findByPSW(cliente.getPSW());
     	
-    	if(result != null) {
-            return "cliente/effettuaPrenotazione";
+    	if(emailRes.getCodiceFiscale() == pswRes.getCodiceFiscale()) {
+            return effettuaPrenotazione(model, emailRes);
             //viene richiamato il template effettuaPrenotazione che si aspetta un oggetto PrenotazioneDTO
             //sistemare questa view in modo da passare direttamente un oggetto DTO senza dover
             //reinserire CF, nome, ....
     	}else {
-        	model.addAttribute("Errore", "Non è stato possibile trovare il cliente. Registrati");
-            return "cliente/registrazione";
+    		model.addAttribute("esito", false);
+        	model.addAttribute("status", "Email o Password inserite errate");
+            return "cliente/esitoRegistrazione";
     	}
     }
     

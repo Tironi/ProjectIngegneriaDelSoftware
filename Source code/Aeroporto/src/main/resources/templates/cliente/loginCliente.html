@@ -8,10 +8,10 @@
   	<form th:action="@{/cliente/loginCliente}" th:object="${cliente}" method="post">
   	
 	   <label for="fname">Email:</label><br>
-	   <input type="text" th:field="*{email}" id="email" name="email"><br>
+	   <input type="text" th:field="*{email}" id="email" name="email" required="required"><br>
 	   
 	   <label for="lname">Password:</label><br>
-	   <input type="text" th:field="*{PSW}" id="PSW" name="PSW"><br><br>
+	   <input type="text" th:field="*{PSW}" id="PSW" name="PSW" required="required"><br><br>
 	   
 	   <input type="submit" value="Submit">
 	   	   

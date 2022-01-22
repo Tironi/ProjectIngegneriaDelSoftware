@@ -10,5 +10,6 @@ public interface IClienteRepository extends CrudRepository<Cliente, String>{
 	
 	Cliente findByCodiceFiscale(String codiceFiscale);
 	Cliente findByEmail(String email);
+	Cliente findByPSW(String psw);
 
 }
