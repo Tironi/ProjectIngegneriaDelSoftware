@@ -36,14 +36,18 @@
 		    	</thead>
 			    <tbody>
 			        <tr th:each="prenotazioni : ${prenotazioneDTO}">
-			        	<form th:action="@{/controlloStorico}">
+			        	<form th:action="@{/modificaPrenotazione}" modelAttribute="${prenotazioni.prenotazione}">
 					   		<td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
 				            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
 				            <td><span th:text="${prenotazioni.prenotazione.getNumPosto()}">  </span></td>
 				            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
 				            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
-				            <td><input type="submit" value="Modifica volo"></td>
-				 		</form>	
+				            <td>
+			    				<input type="hidden" th:value="*{prenotazioni.prenotazione.codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
+			    				<input type="hidden" th:value="*{prenotazioni.prenotazione.codiceVolo}" id="codiceVolo" name="codiceVolo">
+				            	<input type="submit" value="Modifica volo">
+				            </td>
+				 		</form>
 			        </tr>
 			    </tbody>
 		    </table>

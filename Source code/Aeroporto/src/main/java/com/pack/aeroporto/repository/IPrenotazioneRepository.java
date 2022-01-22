@@ -10,4 +10,5 @@ import com.pack.aeroporto.entity.Prenotazione;
 public interface IPrenotazioneRepository extends CrudRepository<Prenotazione, String>{
 	List<Prenotazione> findAllByCodiceFiscale(String codiceFiscale);
 	List<Prenotazione> findAllByCodiceVolo(Long codiceVolo);
+	Prenotazione findByCodiceFiscaleAndCodiceVolo(String codiceFiscale, Long codiceVolo);
 }

@@ -125,38 +125,35 @@ public class ClienteController {
     }
     
     @GetMapping("modificaPrenotazione")
-    public String getModificaPrenotazione(Model model) {
+    public String getModificaPrenotazione(@ModelAttribute Prenotazione prenotazione, Model model) {
     	
     	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
     	
-    	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
-		
-    	getVoli(result);
+    	prenotazioneDTO.setPrenotazione(prenotazione);
     	
     	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
-    	model.addAttribute("voli", result);
     	
-    	return "/cliente/effettuaPrenotazione";
+    	return "/cliente/modificaPrenotazione";
     }
     
-    @PostMapping("modificaPrenotazione")
-    public String postModificaPrenotazione(Model model) {
+    @PostMapping("/cliente/modificaPrenotazione")
+    public String postModificaPrenotazione(@ModelAttribute PrenotazioneDTO prenotazioneDTO, Model model) {
     	
-    	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
+    	Prenotazione prenotazioneResult = prenotazioneDTO.getPrenotazione();
+
+    	Prenotazione input = new Prenotazione();
+    	input.setCodiceFiscale(prenotazioneResult.getCodiceFiscale());
+    	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
+    	input.setPasto(prenotazioneResult.isPasto());
+    	input.setBigliettoPrioritario(prenotazioneResult.isBigliettoPrioritario());
+    	input.setValigiaCabina(prenotazioneResult.isValigiaCabina());
     	
-    	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
-		
-    	getVoli(result);
+    	prenotazioneRepo.save(input);
     	
-    	if(result.size() == 0) {
-    		model.addAttribute("status", "Nessun volo disponibile");
-    		return "/cliente/error";
-    	}
+    	model.addAttribute("esito", true);
+    	model.addAttribute("status", "Modifica prenotazione andata a buon fine");
     	
-    	model.addAttribute("prenotazioneDTO", prenotazioneDTO);
-    	model.addAttribute("voli", result);
-    	
-    	return "/cliente/effettuaPrenotazione";
+    	return "/cliente/esitoPrenotazione";
     }
     
     private int numeroPostiDisponibili(Prenotazione prenotazioneResult) {
@@ -164,7 +161,7 @@ public class ClienteController {
     	
     	List<Prenotazione> p = prenotazioneRepo.findAllByCodiceVolo(prenotazioneResult.getCodiceVolo());
     	
-    	int postiValigieCabinaOccupati = 0;    	
+    	int postiValigieCabinaOccupati = 0;
     	Iterator t = p.iterator();
     	while(t.hasNext()) {
     		Prenotazione prenotazioneItem = (Prenotazione) t.next();
