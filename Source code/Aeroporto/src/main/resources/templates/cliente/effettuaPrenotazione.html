@@ -2,8 +2,13 @@
 <html lang="en"
   xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Effettua prenotazione</title>
+	<meta charset="ISO-8859-1">
+	<title>Effettua prenotazione</title>
+	<style>
+		table, th, td {
+		  border: 1px solid black;
+		}
+	</style>
 </head>
 <body>
 	<h1>Effettua prenotazione</h1>
@@ -16,12 +21,32 @@
 			</select>
 		</p>
 		
-		<label for="fcodiceFiscale">Codice fiscale: </label>
-	    <input type="text" th:field="*{cliente.codiceFiscale}" id="codiceFiscale" name="codiceFiscale" required="required">
-		<label for="fcodiceFiscale">Nome: </label>
-	    <input type="text" th:field="*{cliente.nome}" id="nome" name="nome" required="required">
-		<label for="fcodiceFiscale">Cognome: </label>
-	    <input type="text" th:field="*{cliente.cognome}" id="cognome" name="cognome" required="required">
+		
+		
+		 <table>
+		    <tbody>
+		       <tr>
+		            <th style="text-align: left;"> Codice fiscale: </th>
+		            <th style="text-align: right;font-weight: 100;"><span th:text="${prenotazioneDTO.cliente.getCodiceFiscale()}">  </span></th>
+		            
+		            <input type="hidden" th:value="${prenotazioneDTO.cliente.getCodiceFiscale()}" th:field=*{prenotazioneDTO.cliente.codiceFiscale}>
+		        </tr>
+		        <tr>
+		            <th style="text-align: left;"> Nome: </th>
+		            <th style="text-align: right;font-weight: 100;"><span th:text="${prenotazioneDTO.cliente.getNome()}">  </span></th>
+		            
+		            <input type="hidden" th:value="${prenotazioneDTO.cliente.getNome()}" th:field=*{prenotazioneDTO.cliente.nome}>
+		        </tr>
+		        <tr>
+		            <th style="text-align: left;"> Cognome: </th>
+		            <th style="text-align: right;font-weight: 100;"><span th:text="${prenotazioneDTO.cliente.getCognome()}">  </span></th>
+		            
+		            <input type="hidden" th:value="${prenotazioneDTO.cliente.getCognome()}" th:field=*{prenotazioneDTO.cliente.cognome}>
+		        </tr>
+		    </tbody>
+	    </table>
+		
+	
 	    <br>
 	    <br>
 	     <div class="form-group">
