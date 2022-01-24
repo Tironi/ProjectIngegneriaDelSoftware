@@ -24,6 +24,12 @@ public class Cliente extends Persona {
     	this.setPSW(PSW);
 	}
 	
+	public Cliente(String codiceFiscale, String nome, String cognome, String email, String PSW) {
+    	super(codiceFiscale, nome, cognome);
+		this.setEmail(email);
+    	this.setPSW(PSW);
+	}
+	
 	public String getEmail() {
 		return email;
 	}

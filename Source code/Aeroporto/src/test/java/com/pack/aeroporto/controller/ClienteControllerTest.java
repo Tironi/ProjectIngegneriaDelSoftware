@@ -46,7 +46,10 @@ public class ClienteControllerTest {
     ClienteController c;
     
 	@Mock
-	Model m;
+	Model modelModel;
+
+	@Mock
+	Cliente clienteModel;
 
     @BeforeEach
     public void init() {
@@ -59,9 +62,10 @@ public class ClienteControllerTest {
 		when(voloRepo.findAll()).thenReturn(Arrays.asList(new Volo(new Long(1), "A", "B", new Date(2323223232L), new Long(11), 3.0, 10)));
 		when(aereoRepo.findByCodiceAereo(anyLong())).thenReturn(new Aereo(new Long(11), 3));
 		
-		/*String result = c.effettuaPrenotazione(m);
+		clienteModel = new Cliente("abelo", "alessandro", "belotti", "alebelo@gmail", "123");
+		String result = c.effettuaPrenotazione(modelModel, clienteModel);
 		
-		assertEquals(result, "/cliente/effettuaPrenotazione");*/
+		assertEquals(result, "/cliente/effettuaPrenotazione");
 	}
 	
 	@Test
@@ -74,10 +78,11 @@ public class ClienteControllerTest {
 		v.setCodiceVolo(new Long(2));
 		v.setCodiceAereo(new Long(1));
 		voloRepo.save(v);
+
+		clienteModel = new Cliente("abelo", "alessandro", "belotti", "alebelo@gmail", "123");
+		String result = c.effettuaPrenotazione(modelModel, clienteModel);
 		
-		/*String result = c.effettuaPrenotazione(m);
-		
-		assertEquals(result, "/cliente/error");*/
+		assertEquals(result, "/cliente/error");
 	}
 	
 	@Test
@@ -89,10 +94,11 @@ public class ClienteControllerTest {
 		v.setCodiceVolo(new Long(2));
 		v.setCodiceAereo(new Long(1));
 		voloRepo.save(v);
+
+		clienteModel = new Cliente("abelo", "alessandro", "belotti", "alebelo@gmail", "123");
+		String result = c.effettuaPrenotazione(modelModel, clienteModel);
 		
-		/*String result = c.effettuaPrenotazione(m);
-		
-		assertEquals(result, "/cliente/error");*/
+		assertEquals(result, "/cliente/error");
 	}
 	
 	@Test
@@ -116,7 +122,7 @@ public class ClienteControllerTest {
 		pDTO.setPrenotazione(p);
 		pDTO.setCliente(cliente);
 
-		String result = c.postEffettuaPrenotazione(pDTO,  m);
+		String result = c.postEffettuaPrenotazione(pDTO,  modelModel);
 
 		assertEquals(result, "/cliente/esitoPrenotazione");
 	}
@@ -141,7 +147,7 @@ public class ClienteControllerTest {
 		pDTO.setPrenotazione(p);
 		pDTO.setCliente(cliente);
 
-		String result = c.postEffettuaPrenotazione(pDTO,  m);
+		String result = c.postEffettuaPrenotazione(pDTO,  modelModel);
 
 		assertEquals(result, "/cliente/esitoPrenotazione");
 	}
@@ -163,7 +169,7 @@ public class ClienteControllerTest {
 		pDTO.setPrenotazione(p);
 		pDTO.setCliente(cliente);
 
-		String result = c.postEffettuaPrenotazione(pDTO,  m);
+		String result = c.postEffettuaPrenotazione(pDTO,  modelModel);
 
 		assertEquals(result, "/cliente/error");
 	}
