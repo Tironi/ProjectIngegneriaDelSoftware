@@ -48,9 +48,11 @@ public class ClienteController {
     public String effettuaPrenotazione(Model model, Cliente cliente) {
     	
     	PrenotazioneDTO prenotazioneDTO = new PrenotazioneDTO();
-    	prenotazioneDTO.cliente.setCodiceFiscale(cliente.getCodiceFiscale());
-    	prenotazioneDTO.cliente.setNome(cliente.getNome());
-    	prenotazioneDTO.cliente.setCognome(cliente.getCognome());
+    	Cliente input = new Cliente();
+    	input.setCodiceFiscale(cliente.getCodiceFiscale());
+    	input.setNome(cliente.getNome());
+    	input.setCognome(cliente.getCognome());
+    	prenotazioneDTO.setCliente(input);
     	
     	List<Volo> result = Lists.newArrayList(voloRepo.findAll());
 		
@@ -107,6 +109,14 @@ public class ClienteController {
     		clienteRepo.save(input);
     	}
     	    	
+    	if(prenotazioneRepo.existsByCodiceFiscaleAndCodiceVolo(clienteResult.getCodiceFiscale(), prenotazioneResult.getCodiceVolo()) == true) {
+    		model.addAttribute("esito", false);
+        	model.addAttribute("status", "Hai già effettuato una prenotazione per questo volo!");
+        	
+        	return "/cliente/esitoPrenotazione";
+    	}
+    		
+    	
     	int postiValigieCabinaOccupati = numeroPostiDisponibili(prenotazioneResult);
     	
     	//salvataggio prenotazione
@@ -168,9 +178,7 @@ public class ClienteController {
     	Iterator t = p.iterator();
     	while(t.hasNext()) {
     		Prenotazione prenotazioneItem = (Prenotazione) t.next();
-		    if(prenotazioneItem.isValigiaCabina()) {
-    			postiValigieCabinaOccupati +=1;
-    		}
+    		postiValigieCabinaOccupati +=1;
 		}
     	
     	return postiValigieCabinaOccupati;

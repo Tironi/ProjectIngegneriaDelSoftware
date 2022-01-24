@@ -8,7 +8,7 @@ import com.pack.aeroporto.entity.Prenotazione;
 public class PrenotazioneDTO {
 
   
-    public Cliente cliente;
+	private Cliente cliente;
     private Prenotazione prenotazione;
     
     private Long codiceVolo;

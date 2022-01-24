@@ -11,4 +11,5 @@ public interface IPrenotazioneRepository extends CrudRepository<Prenotazione, St
 	List<Prenotazione> findAllByCodiceFiscale(String codiceFiscale);
 	List<Prenotazione> findAllByCodiceVolo(Long codiceVolo);
 	Prenotazione findByCodiceFiscaleAndCodiceVolo(String codiceFiscale, Long codiceVolo);
+	boolean existsByCodiceFiscaleAndCodiceVolo(String codiceFiscale, Long codiceVolo);
 }
