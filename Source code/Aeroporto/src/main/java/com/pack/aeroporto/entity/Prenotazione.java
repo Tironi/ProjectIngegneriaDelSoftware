@@ -16,6 +16,7 @@ public class Prenotazione {
     private double pesoBagaglio;
     private boolean bigliettoPrioritario;
     private boolean pasto;
+    private double prezzo;
 
     public Prenotazione() {}
     
@@ -89,5 +90,13 @@ public class Prenotazione {
 
 	public void setPasto(boolean pasto) {
 		this.pasto = pasto;
+	}
+
+	public double getPrezzo() {
+		return prezzo;
+	}
+
+	public void setPrezzo(double prezzo) {
+		this.prezzo = prezzo;
 	}
 }

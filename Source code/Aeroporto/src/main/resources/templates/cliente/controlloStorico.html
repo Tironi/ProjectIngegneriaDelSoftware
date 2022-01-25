@@ -32,6 +32,7 @@
 			            <th> Numero del posto assegnato </th>
 			            <th> Nome </th>
 			            <th> Cognome </th>
+			            <th> Prezzo </th>
 			        </tr>
 		    	</thead>
 			    <tbody>
@@ -42,6 +43,7 @@
 				            <td><span th:text="${prenotazioni.prenotazione.getNumPosto()}">  </span></td>
 				            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
 				            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
+				            <td><span th:text="${(prenotazioni.prenotazione.getPrezzo())}">  </span></td>
 				            <td>
 			    				<input type="hidden" th:value="*{prenotazioni.prenotazione.codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
 			    				<input type="hidden" th:value="*{prenotazioni.prenotazione.codiceVolo}" id="codiceVolo" name="codiceVolo">
