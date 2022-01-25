@@ -16,11 +16,10 @@
   	
 	
 </head>
-<body style="position: absolute; margin: auto; display: block; bottom: 0px; top: 25%; left: 50%; transform: translate(-50%, 0);">
+<body style="position: absolute; margin: auto; display: block; bottom: 0px; top: 17%; left: 50%; transform: translate(-50%, 0);">
 	<h1>Effettua prenotazione</h1>
 	
-	
-    
+	<br>
     
     <form th:action="@{/cliente/effettuaPrenotazione}" th:object="${prenotazioneDTO}" method="post">
     	<div class="form-group row">
@@ -91,8 +90,9 @@
 			</div>
 		</div>
 	    <br>
-	    <br>
-	    <input type="submit" class="btn btn-primary" value="Prenota">
+	    <div>
+	    	<input style="position: absolute; margin: auto; display: block; bottom: 60px; left: 50%; transform: translate(-50%, 0);" type="submit" class="btn btn-primary" value="Prenota">
+	    </div>
     </form>
     
 </body>
