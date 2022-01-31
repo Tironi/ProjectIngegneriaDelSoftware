@@ -1,7 +1,0 @@
-Domande per Bonfanti Silvia
-
-Activity Diagram:
-    - Possiamo tornare piu di un "esito"
-
-Software Design:
-    - component Diagram per descrivere l'architettura o basta il class diagram
