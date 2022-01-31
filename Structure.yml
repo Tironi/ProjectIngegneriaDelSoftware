@@ -1,0 +1,32 @@
+branch:
+    production : per far visualizzare il cliente il progetto finale
+    develop : che contiene la versione piu aggiornata del progetto (funzionante)
+    fb- (feature branch)
+    fb-operatore
+    fb-utente
+    fb-volo
+
+models:
+    Aereo
+    Cliente
+    CompagniViaggio
+    Operatore
+    Posto
+    Prenotazione
+    Volo
+
+views:
+    -- Operatore --
+    Login
+    InserisciVolo
+    EsitoInserimento
+
+    -- Utente --
+    Menu
+    VisualizzaVoli
+    InserimentoDati
+    Esito
+    ControlloPrenotazioni - VisualizzareVoliPrenotati
+
+controllers:
+    

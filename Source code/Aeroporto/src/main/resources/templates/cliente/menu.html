@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Menu</title>
+</head>
+<body>
+	
+	<form th:action="@{effettuaPrenotazione}" th:object="${cliente}">
+	   <input type="hidden" th:field="*{cliente}" id="cliente" name="cliente">
+ 	
+	   <input type="submit" value="Effettua prenotazione">
+	</form>
+	
+	<br>
+	<br>	
+	<a th:href="controlloStorico">Controllo storico</a>
+	<br>
+	<br>	
+	<a th:href="registrazione">Registrazione</a>	
+</body>
+</html>

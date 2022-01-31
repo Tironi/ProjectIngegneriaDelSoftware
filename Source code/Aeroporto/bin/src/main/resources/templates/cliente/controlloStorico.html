@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Controllo storico</title>
+</head>
+<body>
+	<div th:if="${cerca}"> 
+		<!-- condizione valutata solo al primo accesso
+		alla pagina, dopodiche il CF inserito (che sar� nell'oggetto Prenotazione) non sar� pi� nullo -->
+		
+			<form th:action="@{/cliente/controlloStorico}"  th:object="${prenotazione}"  method="post">
+				<label for="fcodiceFiscale">Codice fiscale: </label>
+			    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale"  required="required">
+			    <input type="submit" value="Cerca">
+		    </form>
+		</div>
+		<div th:unless="${cerca}">
+			<table>
+			   <thead>
+			        <tr>
+			            <th> Codice Fiscale</th>
+			            <th> Codice Volo </th>
+			            <th> Nome </th>
+			            <th> Cognome </th>
+			        </tr>
+		    	</thead>
+			    <tbody>
+			        <tr th:each="prenotazioni : ${prenotazioneDTO}">
+			            <td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
+			            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
+			            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
+			            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
+			        </tr>
+			    </tbody>
+		    </table>
+		    
+		    <table>
+        <tr>
+            <td>
+				<form th:action="@{/controlloStorico}" >
+				   <input type="submit" value="Controllo storico">
+			 	</form>
+			</td>
+            
+			<td>
+				<form th:action="@{/cliente}" >
+				   <input type="submit" value="Menu">
+			 	</form>
+			</td>
+        </tr>
+    </table>
+		</div>
+</body>
+</html>
