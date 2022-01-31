@@ -232,7 +232,7 @@ public class ClienteController {
     	Cliente emailRes = clienteRepo.findByEmail(cliente.getEmail());
     	Cliente pswRes = clienteRepo.findByPSW(cliente.getPSW());
     	
-    	if(emailRes.getCodiceFiscale() == pswRes.getCodiceFiscale()) {
+    	if(emailRes != null && emailRes.getCodiceFiscale() == pswRes.getCodiceFiscale()) {
             return effettuaPrenotazione(model, emailRes);
             //viene richiamato il template effettuaPrenotazione che si aspetta un oggetto PrenotazioneDTO
             //sistemare questa view in modo da passare direttamente un oggetto DTO senza dover
