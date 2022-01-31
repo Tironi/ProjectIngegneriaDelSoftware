@@ -128,6 +128,12 @@ public class ClienteController {
     	input.setPasto(prenotazioneResult.isPasto());
     	input.setBigliettoPrioritario(prenotazioneResult.isBigliettoPrioritario());
     	input.setValigiaCabina(prenotazioneResult.isValigiaCabina());
+    	
+    	double costo = v.getPrezzo();
+    	int pasto = prenotazioneResult.isPasto() ? 1 : 0;
+    	int prioritario = prenotazioneResult.isBigliettoPrioritario() ? 1 : 0;
+    	costo += pasto * 10 + prioritario * 0.3 * v.getPrezzo();
+    	input.setPrezzo(costo);
 
     	prenotazioneRepo.save(input);
     	
@@ -157,9 +163,18 @@ public class ClienteController {
     	Prenotazione input = new Prenotazione();
     	input.setCodiceFiscale(prenotazioneResult.getCodiceFiscale());
     	input.setCodiceVolo(prenotazioneResult.getCodiceVolo());
+    	input.setNumPosto(numeroPostiDisponibili(prenotazioneResult));
     	input.setPasto(prenotazioneResult.isPasto());
     	input.setBigliettoPrioritario(prenotazioneResult.isBigliettoPrioritario());
     	input.setValigiaCabina(prenotazioneResult.isValigiaCabina());
+    	
+    	Long codVolo = prenotazioneResult.getCodiceVolo();
+    	Volo tmp = voloRepo.findByCodiceVolo(codVolo);
+    	double costo = tmp.getPrezzo();
+    	int pasto = prenotazioneResult.isPasto() ? 1 : 0;
+    	int prioritario = prenotazioneResult.isBigliettoPrioritario() ? 1 : 0;
+    	costo += pasto * 10 + prioritario * 0.3 * tmp.getPrezzo();
+    	input.setPrezzo(costo);
     	
     	prenotazioneRepo.save(input);
     	
