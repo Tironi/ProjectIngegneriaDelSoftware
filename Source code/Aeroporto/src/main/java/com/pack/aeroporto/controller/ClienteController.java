@@ -80,7 +80,7 @@ public class ClienteController {
   				t.remove();
   			}
 		}
-	}
+	} 
     
     @PostMapping("/cliente/effettuaPrenotazione")
     public String postEffettuaPrenotazione(@ModelAttribute PrenotazioneDTO prenotazioneDTO, Model model) {
