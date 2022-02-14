@@ -69,12 +69,12 @@ public class ClienteControllerTest {
 	}
 	
 	@Test
-	public void effettuaPrenotazioneTest_removeVolo() {
+	public void afterEffettuaPrenotazioneTest_removeVolo() {
 		
 		when(voloRepo.findAll()).thenReturn(Arrays.asList(new Volo(new Long(1), "A", "B", new Date(2323223232L), new Long(11), 3.0, 10)));
 		when(aereoRepo.findByCodiceAereo(anyLong())).thenReturn(new Aereo(new Long(11), 0));
 		
-		Volo v = new Volo();
+		Volo v = new Volo(); 
 		v.setCodiceVolo(new Long(2));
 		v.setCodiceAereo(new Long(1));
 		voloRepo.save(v);
@@ -86,8 +86,10 @@ public class ClienteControllerTest {
 	}
 	
 	@Test
-	public void effettuaPrenotazioneTest_nessunVolo() {
+	public void beforeEffettuaPrenotazioneTest_nessunVolo() {
 
+		// non avendo ancora inserito alcun volo il richiamo della effettuaPrenotazione
+		// è inutile perchè non sarà possibile selezionare alcun codiceVolo
 		when(voloRepo.findAll()).thenReturn(Arrays.asList());
 		
 		Volo v = new Volo();
@@ -102,7 +104,7 @@ public class ClienteControllerTest {
 	}
 	
 	@Test
-	public void postEffettuaPrenotazioneTest_esitoAffermativo() {
+	public void afterEffettuaPrenotazioneTest_esitoAffermativo() {
 		
 		when(voloRepo.findByCodiceVolo(anyLong())).thenReturn(new Volo(new Long(1), "A", "B", new Date(2323223232L), new Long(11), 3.0, 10));
 		when(aereoRepo.findByCodiceAereo(anyLong())).thenReturn(new Aereo(new Long(11), 10));
@@ -127,7 +129,7 @@ public class ClienteControllerTest {
 	}
 
 	@Test
-	public void postEffettuaPrenotazioneTest_clienteNonPresente() {
+	public void afterEffettuaPrenotazioneTest_clienteNonPresente() {
 		
 		when(voloRepo.findByCodiceVolo(anyLong())).thenReturn(new Volo(new Long(1), "A", "B", new Date(2323223232L), new Long(11), 3.0, 10));
 		when(aereoRepo.findByCodiceAereo(anyLong())).thenReturn(new Aereo(new Long(11), 10));
@@ -142,7 +144,7 @@ public class ClienteControllerTest {
 		cliente.setCognome("COGNOME");
 		
 		PrenotazioneDTO pDTO = new PrenotazioneDTO();
-		pDTO.setPrenotazione(p);
+		pDTO.setPrenotazione(p); 
 		pDTO.setCliente(cliente);
 
 		String result = c.postEffettuaPrenotazione(pDTO,  modelModel);
@@ -151,7 +153,7 @@ public class ClienteControllerTest {
 	}
 	
 	@Test
-	public void postEffettuaPrenotazioneTest_voloNonPresente() {
+	public void afterEffettuaPrenotazioneTest_voloNonPresente() {
 		
 		Prenotazione p = new Prenotazione();
 		p.setCodiceFiscale("CODICEFISCALE");
@@ -166,6 +168,8 @@ public class ClienteControllerTest {
 		pDTO.setPrenotazione(p);
 		pDTO.setCliente(cliente);
 
+		// viene richiamata la postEffettuaPrenotazione con un codiceVolo non presente nel repo:
+		// questo capita se la chiamata viene fatto da un tool esterno (Postman) 
 		String result = c.postEffettuaPrenotazione(pDTO,  modelModel);
 
 		assertEquals(result, "/cliente/error");
