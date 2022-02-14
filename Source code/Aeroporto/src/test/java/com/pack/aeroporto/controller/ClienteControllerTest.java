@@ -57,7 +57,7 @@ public class ClienteControllerTest {
 	}
 	
 	@Test
-	public void effettuaPrenotazioneTest_tornaTemplate() {
+	public void afterEffettuaPrenotazioneTest_tornaTemplate() {
 		
 		when(voloRepo.findAll()).thenReturn(Arrays.asList(new Volo(new Long(1), "A", "B", new Date(2323223232L), new Long(11), 3.0, 10)));
 		when(aereoRepo.findByCodiceAereo(anyLong())).thenReturn(new Aereo(new Long(11), 3));
@@ -108,7 +108,6 @@ public class ClienteControllerTest {
 		when(aereoRepo.findByCodiceAereo(anyLong())).thenReturn(new Aereo(new Long(11), 10));
 		when(clienteRepo.findById(anyString())).thenReturn(Optional.of(new Cliente()));
 		
-		// cerchiamo se nel repo è presente la prenotazione a CF "tmp123tmp"
 		Prenotazione p = new Prenotazione();
 		p.setCodiceFiscale("CODICEFISCALE");
 		p.setCodiceVolo(new Long(1));
@@ -133,7 +132,6 @@ public class ClienteControllerTest {
 		when(voloRepo.findByCodiceVolo(anyLong())).thenReturn(new Volo(new Long(1), "A", "B", new Date(2323223232L), new Long(11), 3.0, 10));
 		when(aereoRepo.findByCodiceAereo(anyLong())).thenReturn(new Aereo(new Long(11), 10));
 		
-		// cerchiamo se nel repo è presente la prenotazione a CF "tmp123tmp"
 		Prenotazione p = new Prenotazione();
 		p.setCodiceFiscale("CODICEFISCALE");
 		p.setCodiceVolo(new Long(1));
@@ -155,7 +153,6 @@ public class ClienteControllerTest {
 	@Test
 	public void postEffettuaPrenotazioneTest_voloNonPresente() {
 		
-		// cerchiamo se nel repo è presente la prenotazione a CF "tmp123tmp"
 		Prenotazione p = new Prenotazione();
 		p.setCodiceFiscale("CODICEFISCALE");
 		p.setCodiceVolo(new Long(1));

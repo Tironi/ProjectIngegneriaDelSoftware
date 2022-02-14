@@ -2,36 +2,60 @@
 <html lang="en"
   xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Controllo storico</title>
-</head>
-<body>
-	<div th:if="${cerca}"> 
-		<!-- condizione valutata solo al primo accesso
-		alla pagina, dopodiche il CF inserito (che sar� nell'oggetto Prenotazione) non sar� pi� nullo -->
+	<meta charset="ISO-8859-1">
+	<title>Controllo storico</title>
+	
+	
+		<style>
+			table, th, td {
+			  border: 1px solid black;
+			}
+		</style>
 		
-			<form th:action="@{/cliente/controlloStorico}"  th:object="${prenotazione}"  method="post">
-				<label for="fcodiceFiscale">Codice fiscale: </label>
-			    <input type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale"  required="required">
-			    <input type="submit" value="Cerca">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  	
+</head>
+<body style="position: absolute; margin: auto; display: block; bottom: 0px; top: 25%; left: 50%; transform: translate(-50%, 0);">
+
+	<h1>CONTROLLO STORICO</h1>
+	<br>
+	
+	<div  th:if="${cerca}"> 
+		
+			<form th:action="@{/cliente/controlloStorico}"  th:object="${prenotazione}" method="post">
+				<label for="fcodiceFiscale" class="form-label">Codice fiscale: </label>
+			    <input class="form-control" type="text" th:field="*{codiceFiscale}" id="codiceFiscale" name="codiceFiscale" placeholder="Inserire codice fiscale" required="required">
+			    <br>
+			    <input type="submit" value="Cerca" class="btn btn-outline-primary ">
 		    </form>
 		</div>
 		<div th:unless="${cerca}">
-			<table>
+			<table  class="table">
 			   <thead>
 			        <tr>
 			            <th> Codice Fiscale</th>
 			            <th> Codice Volo </th>
+			            <th> Numero del posto assegnato </th>
 			            <th> Nome </th>
 			            <th> Cognome </th>
+			            <th> Prezzo </th>
 			        </tr>
 		    	</thead>
 			    <tbody>
-			        <tr th:each="prenotazioni : ${prenotazioneDTO}">
-			            <td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
-			            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
-			            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
-			            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
+			        <tr th:each="prenotazioni : ${prenotazioneDTO}"  scope="row">
+			        	<form th:action="@{/modificaPrenotazione}" modelAttribute="${prenotazioni.prenotazione}">
+					   		<td><span th:text="${prenotazioni.prenotazione.getCodiceFiscale()}">  </span></td>
+				            <td><span th:text="${prenotazioni.prenotazione.getCodiceVolo()}">  </span></td>
+				            <td><span th:text="${prenotazioni.prenotazione.getNumPosto()}">  </span></td>
+				            <td><span th:text="${prenotazioni.cliente.getNome()}">  </span></td>
+				            <td><span th:text="${prenotazioni.cliente.getCognome()}">  </span></td>
+				            <td><span th:text="${(prenotazioni.prenotazione.getPrezzo())}">  </span> $</td>
+				            <td>
+			    				<input type="hidden" th:value="*{prenotazioni.prenotazione.codiceFiscale}" id="codiceFiscale" name="codiceFiscale">
+			    				<input type="hidden" th:value="*{prenotazioni.prenotazione.codiceVolo}" id="codiceVolo" name="codiceVolo">
+				            	<input type="submit"  class="btn btn-primary" value="Modifica volo">
+				            </td>
+				 		</form>
 			        </tr>
 			    </tbody>
 		    </table>
@@ -40,13 +64,13 @@
         <tr>
             <td>
 				<form th:action="@{/controlloStorico}" >
-				   <input type="submit" value="Controllo storico">
+				   <input type="submit" class="btn btn-primary" value="Controllo storico">
 			 	</form>
 			</td>
             
 			<td>
-				<form th:action="@{/cliente}" >
-				   <input type="submit" value="Menu">
+				<form th:action="@{/}" >
+				   <input type="submit" class="btn btn-primary"  value="Menu">
 			 	</form>
 			</td>
         </tr>
