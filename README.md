@@ -14,6 +14,8 @@ L’utente utilizza il sistema per:
  - controllare lo storico prenotazioni
  - visualizzare i voli disponibili
 
+Per procedere all'utilizzo dell'applicazione importare il database ingegneria_del_software.sql
+
 Per effettuare le LOGIN come operatore utilizzare le seguente credenziali:
 
  EMAIL    : op
